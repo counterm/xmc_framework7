@@ -1,0 +1,24 @@
+<div class="list-block media-list">
+    <ul>
+        {{#each list}}
+        <!-- 滑动删除 -->
+        <li class="swipeout">
+            <div class="swipeout-content">
+                <a href="template/archieve-list.html" class="item-content item-link" id="message_{{id}}">
+                    <div class="item-inner">
+                        <div class="item-title-row">
+                            <div class="item-title">{{content}}</div>
+                        </div>
+                        <div class="item-subtitle">{{sendTime}}</div>
+                    </div>
+                </a>
+            </div>
+            <!-- Swipeout actions right -->
+            <div class="swipeout-actions-right">
+            <!-- Swipeout actions links/buttons -->
+                <a class="swipeout-delete" href="#" data-confirm="确定删除？" data-confirm-title="温馨提示">删除</a>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>

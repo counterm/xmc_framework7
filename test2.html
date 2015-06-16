@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>天翼移动平台模板</title>
+	<!-- Path to Framework7 Library CSS-->
+	<link rel="stylesheet" href="css/framework7.css">
+
+	<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+	<script>
+function Base(){
+    var me = this;
+	var noArgs = [];
+	this.callParent = function(arg){
+        console.dir(this.callParent.caller.$owner);
+        var obj = this.callParent.caller.$owner.__proto__;
+        var method = obj[this.callParent.caller.$name];
+        if (method){
+            method.apply(this, arg || noArgs);
+        }
+	};
+
+    //  要放到每个类的初始化的最底部
+    //  这个方法会被多次调用
+    this.init = function(parent){
+        for (var i in this){
+
+            if (typeof this[i] == 'function' && this[i].$name == null){
+                if (!this[i].$name){
+                    this[i].$name = i;
+                    this[i].$owner = this;
+                }
+            }
+        }
+    };
+
+    this.fn = function(){
+    	console.log("base class here.");
+    };
+    me.init();
+}
+
+function CA(arg){
+    var me = this;
+    this.fn = function(){
+    	console.log("ca class here.");
+    	this.callParent();
+    };
+    me.init();
+}
+
+function CB(arg){
+    var me = this;
+    this.fn = function(){
+    	console.log("cb class here.");
+    	this.callParent();
+    };
+    me.init();
+}
+
+function CD(arg){
+    var me = this;
+    this.fn = function(){
+    	console.log("cd class here.");
+    	this.callParent();
+    };
+    me.init();
+}
+
+CA.prototype = new Base();
+CB.prototype = new CA();
+CD.prototype = new CB();
+
+var cd = new CD();
+cd.fn();
+
+
+	</script>
+
+</body>
+</html>

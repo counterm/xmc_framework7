@@ -1,0 +1,151 @@
+
+
+<!-- Top Navbar-->
+<!-- 在首页中已经定义了navbar，在这里修改只用navbar-inner也行 -->
+<div class="navbar-inner">
+    <div class="left">
+        <!-- <a href="login.html" class="link open-login-screen" id="logout"><i class="icon icon-back"></i><span>注销</span></a> -->
+        <a href="#" class="link" id="logout"><i class="icon icon-back"></i><span>注销</span></a>
+    </div>
+    <div class="center">文件流转</div>
+    <div class="right">
+        <a href="#" class="link icon-only open-panel">
+            <i class="icon icon-bars"></i>
+        </a>
+    </div>
+</div>
+<!-- /End of Top Navbar-->
+
+<!-- no-swipeback，禁用滑动后退 -->
+<div class="page no-swipeback" 
+    id="docListPage{{archieveType}}" 
+    data-page="doclist{{archieveType}}">
+
+    <!-- 搜索栏 -->
+    <form class="searchbar searchbar-init" data-search-list=".search-here" data-search-in=".item-title" data-found=".searchbar-found" data-not-found=".searchbar-not-found">
+        <div class="searchbar-input">
+            <input type="search" placeholder="搜索文件">
+            <a href="#" class="searchbar-clear"></a>
+        </div>
+        <a href="#" class="searchbar-cancel">取消</a>
+    </form>
+
+    <!-- 搜索栏 overlay-->
+    <div class="searchbar-overlay"></div>
+
+    <!-- 添加pull-to-refresh-content类，开启下拉刷新 -->
+    <div id="archievePullToRefresh{{archieveType}}" class="page-content pull-to-refresh-content infinite-scroll">
+
+        <!-- 下拉刷新层 -->
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+
+
+
+        <div id="doctab{{archieveType}}" class="tab active">
+
+            <div class="list-block media-list search-here searchbar-found">
+                <ul class="page-pagination">
+                    {{#each archieveList.ArchieveItem}}
+                    <li>
+                        <a href="#" class="item-content item-link"
+                            dummy2="ArchieveContent" data-archieveid="{{ArchieveID}}">
+                            <div class="item-media">
+                                <svg class="ic {{doUrgencyImg isUrgency}}"><use xlink:href="#ic-description"></use></svg>
+                            </div>
+                            <div class="item-inner {{doUrgencyTxt isUrgency}}">
+                                <div class="item-title-row">
+                                    <div class="item-title ">{{ArchieveTitle}}</div>
+                                </div>
+                                <div class="item-subtitle">[紧急性:{{doUrgency isUrgency}}][类型:{{FileType}}]</div>
+                                <div class="item-subtitle">{{SenderName}} {{SendTime}}</div>
+                            </div>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+
+        </div>
+
+
+      <!-- Preloader -->
+      <div class="infinite-scroll-preloader">
+        <div class="preloader" id="docListPageInfinitePreloader{{archieveType}}"></div>
+      </div>
+
+    </div>
+
+
+    <!-- 工具栏 -->
+    <div class="toolbar tabbar tabbar-labels">
+        <div class="toolbar-inner">
+            <a href="#" class="tab-link {{#js_compare "this.archieveType=='0'"}}active{{/js_compare}}"
+                    data-atype="0"
+                    {{#js_compare "this.archieveType!='0'"}}
+                        dummy2="ArchieveList"
+                    {{/js_compare}}"
+                >
+                <i class="icon">
+                    <div class="icon ic-svgbug"></div>
+                    <svg class="ic ic-report" style=""><use xlink:href="#ic-report"></use></svg>
+                    {{#js_compare "this.todo != '0'"}}
+                        <span class="badge bg-red">{{todo}}</span>
+                    {{/js_compare}}
+                </i>
+                <span class="tabbar-label">未签收</span>
+            </a>
+            <a href="#" class="tab-link {{#js_compare "this.archieveType=='1'"}}active{{/js_compare}}"
+                    data-atype="1"
+                    {{#js_compare "this.archieveType!='1'"}}
+                        dummy2="ArchieveList"
+                    {{/js_compare}}"
+            >
+                <i class="icon link">
+                    <div class="icon ic-svgbug"></div>
+                    <svg class="ic ic-assignment"><use xlink:href="#ic-assignment"></use></svg>
+                    {{#js_compare "this.doing != '0'"}}
+                        <span class="badge bg-red">{{doing}}</span>
+                    {{/js_compare}}
+                </i>
+                <span class="tabbar-label">待办</span>
+            </a>
+            <a href="#" class="tab-link {{#js_compare "this.archieveType=='2'"}}active{{/js_compare}}"
+                    data-atype="2"
+                    {{#js_compare "this.archieveType!='2'"}}
+                        dummy2="ArchieveList"
+                    {{/js_compare}}"
+            >
+                <i class="icon">
+                    <div class="icon ic-svgbug"></div>
+                    <svg class="ic ic-done"><use xlink:href="#ic-done"></use></svg>
+                    {{#js_compare "this.done != '0'"}}
+                        <span class="badge bg-red">{{done}}</span>
+                    {{/js_compare}}
+                </i>
+                <span class="tabbar-label">已办未结</span>
+            </a>
+            <a href="#" class="tab-link {{#js_compare "this.archieveType=='3'"}}active{{/js_compare}}"
+                    data-atype="3"
+                    {{#js_compare "this.archieveType!='3'"}}
+                        dummy2="ArchieveList"
+                    {{/js_compare}}"
+            >
+                <i class="icon">
+                    <div class="icon ic-svgbug"></div>
+                    <svg class="ic ic-done-all"><use xlink:href="#ic-done-all"></use></svg>
+                    {{#js_compare "this.doneAll != '0'"}}
+                        <span class="badge bg-red">{{doneAll}}</span>
+                    {{/js_compare}}
+                </i>
+                <span class="tabbar-label">已办完结</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+

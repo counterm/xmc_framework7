@@ -1,0 +1,109 @@
+<result>
+	<archieveList>
+
+
+
+		<ArchieveItem>
+			<ArchieveID>250315</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[来自张雷人的审批表]]></ArchieveTitle>
+			<FileType>用车申请表</FileType>
+			<SenderName>郭春天</SenderName>
+			<SendTime>2015-04-19 18:05:18</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>247832</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[来自许有的审批表]]></ArchieveTitle>
+			<FileType>用车申请表</FileType>
+			<SenderName>孔大海</SenderName>
+			<SendTime>2015-04-15 14:49:10</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>247239</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[来自张雷的审批表]]></ArchieveTitle>
+			<FileType>用车申请表</FileType>
+			<SenderName>郭春晓</SenderName>
+			<SendTime>2015-04-15 08:50:46</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>246586</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[来自许有的审批表]]></ArchieveTitle>
+			<FileType>用车申请表</FileType>
+			<SenderName>孔大海</SenderName>
+			<SendTime>2015-04-14 11:15:21</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>242996</ArchieveID>
+			<isUrgency>0</isUrgency>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[检查信息第九期]]></ArchieveTitle>
+			<FileType>收文流程（通知类）</FileType>
+			<SenderName>卢小婷</SenderName>
+			<SendTime>2015-04-09 09:59:27</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>240706</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum>20150121</ArchieveNum>
+			<ArchieveTitle><![CDATA[关于公司工会表彰2014-2015年度先进工会小组、先进工作者、积极分子的通报]]></ArchieveTitle>
+			<FileType>收文</FileType>
+			<SenderName>张大伟</SenderName>
+			<SendTime>2015-04-08 17:10:03</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>240575</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[来自杨炜的审批表]]></ArchieveTitle>
+			<FileType>用车申请表</FileType>
+			<SenderName>邱小红</SenderName>
+			<SendTime>2015-04-08 16:14:41</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>237947</ArchieveID>
+			<isUrgency>0</isUrgency>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[信息第八期]]></ArchieveTitle>
+			<FileType>收文流程（通知类）</FileType>
+			<SenderName>卢小婷</SenderName>
+			<SendTime>2015-04-06 15:25:43</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>235221</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[来自高军的审批表]]></ArchieveTitle>
+			<FileType>用车申请表</FileType>
+			<SenderName>郭春晓</SenderName>
+			<SendTime>2015-04-04 11:20:07</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>234524</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[20150429安全检查纪要]]></ArchieveTitle>
+			<FileType>公司内部文件传阅 </FileType>
+			<SenderName>罗东山</SenderName>
+			<SendTime>2015-03-30 17:28:09</SendTime>
+		</ArchieveItem>
+
+
+	</archieveList>
+
+	<archieveType>1</archieveType>
+	<todo>6</todo>
+	<doing>28</doing>
+	<done>8</done>
+	<doneAll>0</doneAll>
+	<pageSize>10</pageSize>
+	<startId>0</startId>
+
+</result>
+

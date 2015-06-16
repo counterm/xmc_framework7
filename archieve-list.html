@@ -1,0 +1,307 @@
+<!-- Top Navbar-->
+<!-- 在首页中已经定义了navbar，在这里修改只用navbar-inner也行 -->
+<div class="navbar-inner">
+    <div class="left">
+        <!-- <a href="login.html" class="link open-login-screen" id="logout"><i class="icon icon-back"></i><span>注销</span></a> -->
+        <a href="#" class="link" id="logout"><i class="icon icon-back"></i><span>注销</span></a>
+    </div>
+    <div class="center">文件流转</div>
+    <div class="right">
+        <a href="#" class="link icon-only open-panel">
+            <i class="icon icon-bars"></i>
+        </a>
+    </div>
+</div>
+<!-- /End of Top Navbar-->
+
+<!-- no-swipeback，禁用滑动后退 -->
+<div class="page no-swipeback" data-page="archieve-list">
+
+    <!-- 搜索栏 -->
+    <form class="searchbar searchbar-init" data-search-list=".search-here" data-search-in=".item-title" data-found=".searchbar-found" data-not-found=".searchbar-not-found">
+        <div class="searchbar-input">
+            <input type="search" placeholder="搜索文件">
+            <a href="#" class="searchbar-clear"></a>
+        </div>
+        <a href="#" class="searchbar-cancel">取消</a>
+    </form>
+
+    <!-- 搜索栏 overlay-->
+    <div class="searchbar-overlay"></div>
+
+    <!-- 添加pull-to-refresh-content类，开启下拉刷新 -->
+    <div class="page-content pull-to-refresh-content">
+
+        <!-- 下拉刷新层 -->
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+
+        <!-- This block will be displayed if nothing found -->
+        <div class="tabs searchbar-not-found">
+            <div class="list-block media-list">
+                <ul>
+                    <li>
+                    <a href="#" class="item-content item-link">
+                        <!-- <div class="item-media"><img src="..." width="80"/></div> -->
+                        <div class="item-inner">
+                            <div class="item-title">抱歉，没有找到相关内容</div>
+                        </div>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div id="tab1" class="tab active">
+                <!-- ListView START -->
+                <!-- This block will be displayed if anything found, and this list block is used a searbar target -->
+                <div class="list-block media-list search-here searchbar-found">
+                    <ul>
+                        <li>
+                            <a href="archieve-content.html" class="item-content item-link">
+                                <div class="item-media">
+                                    <svg class="ic ic-description-pingjian"><use xlink:href="#ic-description"></use></svg>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">{{name}}{{email}}aa关于佛山市住房和城乡建设管理局联系方式的函</div>
+                                    </div>
+                                    <div class="item-subtitle">[紧急性:平件][类型:收文]</div>
+                                    <div class="item-subtitle">王五 2015-04-24 15:09</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="archieve-content.html" class="item-content item-link">
+                                <div class="item-media">
+                                    <svg class="ic ic-description-jijian"><use xlink:href="#ic-description"></use></svg>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title txt-jijian">关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函</div>
+                                    </div>
+                                    <div class="item-subtitle">[紧急性:急件][类型:收文]</div>
+                                    <div class="item-subtitle">王五 2015-04-24 15:09</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="archieve-content.html" class="item-content item-link">
+                                <div class="item-media">
+                                    <svg class="ic ic-description-teji"><use xlink:href="#ic-description"></use></svg>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title txt-teji">aa关于佛山市住房和城乡建设管理局联系方式的函</div>
+                                    </div>
+                                    <div class="item-subtitle">[紧急性:特急][类型:收文]</div>
+                                    <div class="item-subtitle">王五 2015-04-24 15:09</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- ListView END -->
+            </div>
+
+            <div id="tab2" class="tab">
+                <!-- ListView START -->
+                <!-- This block will be displayed if anything found, and this list block is used a searbar target -->
+                <div class="list-block media-list search-here searchbar-found">
+                    <ul>
+                        <li>
+                            <a href="archieve-content.html" class="item-content item-link">
+                                <div class="item-media">
+                                    <svg class="ic ic-description-pingjian"><use xlink:href="#ic-description"></use></svg>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">222aa关于佛山市住房和城乡建设管理局联系方式的函</div>
+                                    </div>
+                                    <div class="item-subtitle">[紧急性:平件][类型:收文]</div>
+                                    <div class="item-subtitle">王五 2015-04-24 15:09</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="archieve-content.html" class="item-content item-link">
+                                <div class="item-media">
+                                    <svg class="ic ic-description-pingjian"><use xlink:href="#ic-description"></use></svg>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title" style="white-space: normal">222关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函</div>
+                                    </div>
+                                    <div class="item-subtitle">[紧急性:平件][类型:收文]</div>
+                                    <div class="item-subtitle">王五 2015-04-24 15:09</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- ListView END -->
+            </div>
+
+            <div id="tab3" class="tab">
+                <!-- ListView START -->
+                <!-- This block will be displayed if anything found, and this list block is used a searbar target -->
+                <div class="list-block media-list search-here searchbar-found">
+                    <ul>
+                        <li>
+                            <a href="archieve-content.html" class="item-content item-link">
+                                <div class="item-media">
+                                    <svg class="ic ic-description-pingjian"><use xlink:href="#ic-description"></use></svg>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">333aa关于佛山市住房和城乡建设管理局联系方式的函</div>
+                                    </div>
+                                    <div class="item-subtitle">[紧急性:平件][类型:收文]</div>
+                                    <div class="item-subtitle">王五 2015-04-24 15:09</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-content item-link">
+                                <div class="item-media">
+                                    <svg class="ic ic-description-pingjian"><use xlink:href="#ic-description"></use></svg>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title" style="white-space: normal">333关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函</div>
+                                    </div>
+                                    <div class="item-subtitle">[紧急性:平件][类型:收文]</div>
+                                    <div class="item-subtitle">王五 2015-04-24 15:09</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-content item-link">
+                                <div class="item-media">
+                                    <svg class="ic ic-description-pingjian"><use xlink:href="#ic-description"></use></svg>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title" style="white-space: normal">333关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函</div>
+                                    </div>
+                                    <div class="item-subtitle">[紧急性:平件][类型:收文]</div>
+                                    <div class="item-subtitle">王五 2015-04-24 15:09</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- ListView END -->
+            </div>
+
+            <div id="tab4" class="tab">
+                <!-- ListView START -->
+                <!-- This block will be displayed if anything found, and this list block is used a searbar target -->
+                <div class="list-block media-list search-here searchbar-found">
+                    <ul>
+                        <li>
+                            <a href="archieve-content.html" class="item-content item-link">
+                                <div class="item-media">
+                                    <svg class="ic ic-description-pingjian"><use xlink:href="#ic-description"></use></svg>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">444aa关于佛山市住房和城乡建设管理局联系方式的函</div>
+                                    </div>
+                                    <div class="item-subtitle">[紧急性:平件][类型:收文]</div>
+                                    <div class="item-subtitle">王五 2015-04-24 15:09</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-content item-link">
+                                <div class="item-media">
+                                    <svg class="ic ic-description-pingjian"><use xlink:href="#ic-description"></use></svg>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title" style="white-space: normal">444关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函</div>
+                                    </div>
+                                    <div class="item-subtitle">[紧急性:平件][类型:收文]</div>
+                                    <div class="item-subtitle">王五 2015-04-24 15:09</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="archieve-content.html" class="item-content item-link">
+                                <div class="item-media">
+                                    <svg class="ic ic-description-pingjian"><use xlink:href="#ic-description"></use></svg>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">444aa关于佛山市住房和城乡建设管理局联系方式的函</div>
+                                    </div>
+                                    <div class="item-subtitle">[紧急性:平件][类型:收文]</div>
+                                    <div class="item-subtitle">王五 2015-04-24 15:09</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-content item-link">
+                                <div class="item-media">
+                                    <svg class="ic ic-description-pingjian"><use xlink:href="#ic-description"></use></svg>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title" style="white-space: normal">444关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函关于佛山市住房和城乡建设管理局联系方式的函</div>
+                                    </div>
+                                    <div class="item-subtitle">[紧急性:平件][类型:收文]</div>
+                                    <div class="item-subtitle">王五 2015-04-24 15:09</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- ListView END -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 工具栏 -->
+    <div class="toolbar tabbar tabbar-labels">
+        <div class="toolbar-inner">
+            <a href="#tab1" class="tab-link active">
+                <i class="icon">
+                    <div class="icon ic-svgbug"></div>
+                    <svg class="ic ic-report" style=""><use xlink:href="#ic-report"></use></svg>
+                    <span class="badge bg-red">3</span>
+                </i>
+                <span class="tabbar-label">未签收</span>
+            </a>
+            <a href="#tab2" class="tab-link">
+                <i class="icon link">
+                    <div class="icon ic-svgbug"></div>
+                    <svg class="ic ic-assignment"><use xlink:href="#ic-assignment"></use></svg>
+                    <span class="badge bg-red">2</span>
+                </i>
+                <span class="tabbar-label">待办</span>
+            </a>
+            <a href="#tab3" class="tab-link">
+                <i class="icon">
+                    <div class="icon ic-svgbug"></div>
+                    <svg class="ic ic-done"><use xlink:href="#ic-done"></use></svg>
+                </i>
+                <span class="tabbar-label">已办未结</span>
+            </a>
+            <a href="#tab4" class="tab-link">
+                <i class="icon">
+                    <div class="icon ic-svgbug"></div>
+                    <svg class="ic ic-done-all"><use xlink:href="#ic-done-all"></use></svg>
+                </i>
+                <span class="tabbar-label">已办完结</span>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+
+

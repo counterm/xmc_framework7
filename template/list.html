@@ -1,0 +1,30 @@
+
+<div class="list-block media-list search-here searchbar-found">
+    <ul>
+    	{{#each list}}
+        <li>
+            <a href="#" class="item-content item-link"
+            	data-temp="archieve-content" 
+				__data-tempdata='{"title":123, "content":"321"}'
+				data-dummy='{"_url": "content2", "id": {{ArchieveID}}}' 
+				data-tempswap='{"content":"htmlCode"}'
+				data-root="result"
+                data-xmlArray="item"
+                >
+                <div class="item-media">
+                    <svg class="ic {{doUrgencyImg isUrgency}}"><use xlink:href="#ic-description"></use></svg>
+                </div>
+                <div class="item-inner {{doUrgencyTxt isUrgency}}">
+                    <div class="item-title-row">
+                        <div class="item-title ">{{ArchieveTitle}}</div>
+                    </div>
+                    <div class="item-subtitle">[紧急性:{{doUrgency isUrgency}}][类型:{{FileType}}]</div>
+                    <div class="item-subtitle">{{SenderName}} {{SendTime}}</div>
+                </div>
+            </a>
+        </li>
+        {{/each}}
+	</ul>
+</div>
+
+

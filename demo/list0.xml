@@ -1,0 +1,69 @@
+<result>
+	<archieveList>
+		
+		<ArchieveItem>
+			<ArchieveID>300220</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[来自江七的审批表]]></ArchieveTitle>
+			<FileType>用车申请表</FileType>
+			<SenderName>王五</SenderName>
+			<SendTime>2015-05-17 16:44:21</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>297304</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[来自张八的审批表]]></ArchieveTitle>
+			<FileType>用车申请表</FileType>
+			<SenderName>郭二</SenderName>
+			<SendTime>2015-05-15 14:30:24</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>296580</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[来自许三的审批表]]></ArchieveTitle>
+			<FileType>用车申请表</FileType>
+			<SenderName>孔一</SenderName>
+			<SendTime>2015-05-14 17:40:53</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>293125</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[关于印发《完善安全管理必须强化顶层设计》的通知]]></ArchieveTitle>
+			<FileType>公司内部文件传阅 </FileType>
+			<SenderName>黄三</SenderName>
+			<SendTime>2015-05-10 08:11:35</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>292718</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[2015年危险源清单及相关要求]]></ArchieveTitle>
+			<FileType>公司内部文件传阅 </FileType>
+			<SenderName>黄四</SenderName>
+			<SendTime>2015-05-09 15:30:01</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>286013</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[关于印发分公司平安创建工作方案的通知]]></ArchieveTitle>
+			<FileType>公司内部文件传阅 </FileType>
+			<SenderName>黄四</SenderName>
+			<SendTime>2015-05-02 14:35:04</SendTime>
+		</ArchieveItem>
+		
+	</archieveList>
+
+	<archieveType>0</archieveType>
+	<todo>6</todo>
+	<doing>28</doing>
+	<done>8</done>
+	<doneAll>0</doneAll>
+	<pageSize>10</pageSize>
+	<startId>0</startId>
+
+</result>

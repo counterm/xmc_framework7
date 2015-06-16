@@ -1,0 +1,14 @@
+.ic {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+/* ==========================================================================
+Example showing how to change the color/size of the icons:
+.ic-name {
+	font-size: 32px;
+	fill: red;
+}
+========================================================================== */

@@ -1,0 +1,22 @@
+<!-- 常用意见 -->
+<MobileExchange isSuccess="true">
+	<UserId>2</UserId>
+	<UserName>超级管理员</UserName>
+	<UnitId>6</UnitId>
+	<ExchangeData>
+		<AdviceList userId="2">
+			<Advice id="95" sort="1">
+				<Text><![CDATA[同意]]></Text>
+				<Html><![CDATA[同意]]></Html>
+			</Advice>
+			<Advice id="927" sort="2">
+				<Text><![CDATA[花非花好的的地方]]></Text>
+				<Html><![CDATA[花非花好的的地方]]></Html>
+			</Advice>
+			<Advice id="928" sort="3">
+				<Text><![CDATA[啊实打实大]]></Text>
+				<Html><![CDATA[啊实打实大]]></Html>
+			</Advice>
+		</AdviceList>
+	</ExchangeData>
+</MobileExchange>

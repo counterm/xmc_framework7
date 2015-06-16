@@ -1,0 +1,49 @@
+<result>
+	<canGetBack>0</canGetBack>
+	<canSendBack>0</canSendBack>
+	<commentList>
+		<item>
+			<archieveId>300</archieveId>
+			<content>请全体同志阅。</content>
+			<dataTime>2015-05-04 15:41:38</dataTime>
+			<deptName>调研办公室</deptName>
+			<name>拟办意见</name>
+			<userId>0</userId>
+			<userName>霍金</userName>
+		</item>
+		<item>
+			<archieveId>300</archieveId>
+			<content>白建洪[2015/04/24],林木木[2015/04/24],何永民[2015/04/24],范小小[2015/04/24],张三[2015/04/24],李成[2015/04/24],马龙[2015/04/24],许八[2015/04/24]</content>
+			<dataTime>2015-05-04 15:41:38</dataTime>
+			<deptName>调研办公室</deptName>
+			<name>传阅情况</name>
+			<userId>0</userId>
+			<userName>霍金</userName>
+		</item>
+	</commentList>
+	<dmFileList_fj>
+		<item>
+			<fileName>佛424240234</fileName>
+			<fileType>doc</fileType>
+			<fileUrl>http://192.168.101.60:8090/oaExService_newOa/MOAFiles/APP/20131258242073423417_2/file1.xls</fileUrl>
+		</item>
+	</dmFileList_fj>
+	<dmFileList_zw>
+		<item>
+			<fileName>佛424240234</fileName>
+			<fileType>doc</fileType>
+			<fileUrl>http://192.168.101.60:8090/oaExService_newOa/MOAFiles/APP/20131258242073423417_2/file1.xls</fileUrl>
+		</item>
+	</dmFileList_zw>
+
+	<htmlCode><![CDATA[
+		内容
+		]]></htmlCode>
+	<id>1</id>
+	<isChuanyue>0</isChuanyue>
+	<isUrgency>null</isUrgency>
+	<sendTime>null</sendTime>
+	<senderName>null</senderName>
+	<title>1111111111111111111</title>
+	<type>null</type>
+</result>

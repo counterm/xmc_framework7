@@ -1,0 +1,5490 @@
+﻿
+
+
+<!-- saved from url=(0088)file:///C:/Documents%20and%20Settings/Administrator/Local%20Settings/Temp/tmpbksr7i.html -->
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><style>html { 
+
+    font-size: 100%; 
+
+    overflow-y: scroll; 
+
+    -webkit-text-size-adjust: 100%; 
+
+    -ms-text-size-adjust: 100%; 
+
+}
+
+
+
+body{
+
+    font-family: helvetica, arial, freesans, clean, sans-serif;
+
+    color: #333;
+
+    background-color: #fff;
+
+    border-color: #999999;
+
+    border-width: 2px;
+
+    line-height: 1.5;
+
+    margin: 2em 3em;
+
+    text-align:left;
+
+    padding: 0 100px 0 100px;
+
+}
+
+
+
+pre{
+
+    background-color: #eee;
+
+    padding: 10px;
+
+    -webkit-border-radius: 5px;
+
+    -moz-border-radius: 5px;
+
+    border-radius: 5px;
+
+    overflow: auto;
+
+}
+
+code{
+
+    background-color: #eee;
+
+    padding: 1px 3px;
+
+    -webkit-border-radius: 2px;
+
+    -moz-border-radius: 2px;
+
+    border-radius: 2px; 
+
+}
+
+pre code {
+
+    padding-left: 0px;
+
+    padding-right: 0px;
+
+}
+
+li p{
+
+    margin: 0.3em;
+
+}
+
+ul > li{
+
+    list-style-type: disc;
+
+}
+
+a:link, a:visited{
+
+    color: #33e;
+
+    text-decoration: none;
+
+}
+
+a:hover{
+
+    color: #00f;
+
+    text-shadow:1px 1px 2px #ccf;
+
+    text-decoration:underline;
+
+}
+
+h1{
+
+    color: #999;
+
+    font-weight: 400;
+
+    font-size: 36px;
+
+}
+
+h2{
+
+    border-bottom: 1px dotted #aaa;
+
+    margin-bottom: 1em;
+
+    color: #333;
+
+    font-size: 30px;
+
+}
+
+h3{
+
+    color: #666;
+
+    font-size: 24px;
+
+}
+
+h4 {
+
+    font-size: 21px;
+
+}
+
+h5 {
+
+    font-size: 18px;
+
+}
+
+.shadow{
+
+    -webkit-box-shadow:0 5px 15px #000;
+
+    -moz-box-shadow:0 5px 15px #000;
+
+    box-shadow:0 5px 15px #000;     
+
+}
+
+</style></head><body><h1>燃气移动办公接口说明书 版本号：20140123</h1>
+
+<p><em>配置:
+后台系统配置：
+OaExService_WebServiceUrl：值为中转项目的webservices 地址：<br>
+eg：http://中转项目IP:Port/oaExService_newOa/webservice/webService?wsdl<br>
+其中IP和Port 如 192.168.100.122:8080  没有端口则不配端口，如：192.168.100.122<br>
+$FILESERVERIP ：文件服务器IP
+</em>  <br>
+
+<em>  <br>
+
+</em>    所有环节用POST提交
+
+<em>    文件上传的非文件字段转码之后提交
+
+</em>    对错误重新做了处理 在所有方法里面错误不再返回相关节点信息<br>
+
+改为统一返回错误处理方法的内容</p>
+
+<pre><code>    &lt;?xml version="1.0" encoding="UTF-8" ?&gt;    
+
+    &lt;MobileExchange isSuccess='false'&gt;
+
+        &lt;ErrorInfo errorCode='0：普通错误；1：Session过期或未登录'&gt;错误信息&lt;/ErrorInfo&gt;
+
+    &lt;/MobileExchange&gt;
+
+</code></pre>
+
+<p>接口地址均以OA项目开始 如：
+
+    登录地址： http://192.168.100.125:8080/newoa/mobile_<strong>login</strong>.action</p>
+
+<h2>接口</h2>
+
+<h4>获取单位列表</h4>
+
+<ul>
+
+<li>输入：无</li>
+
+<li>接口名称：mobile_getUnits.action <br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitList&gt;
+
+        &lt;!--循环开始--&gt;        
+
+        &lt;Unit&gt;
+
+            &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+            &lt;UnitName&gt;单位名称&lt;/UnitName&gt;
+
+        &lt;/Unit&gt;
+
+        &lt;!--循环结束--&gt; &lt;/UnitList&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>登录</h4>
+
+<ul>
+
+<li>输入：
+
+    LoginName： 用户名
+
+    LoginPWD： 密码
+
+    UnitID：单位ID</li>
+
+<li>接口名称：mobile_login.action <br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;IsLogin&gt;TRUE&lt;/IsLogin&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>获取待办，在办，已办，公告数量，日程数量</h4>
+
+<ul>
+
+<li>输入：无</li>
+
+<li>接口名称：mobile_totalCount.action <br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UserId&gt;单位ID&lt;/UserId&gt;
+
+    &lt;UnitId&gt;用户ID&lt;/UnitId&gt;
+
+	&lt;UserName&gt;用户名&lt;/UserName&gt;
+    &lt;ExchangeData&gt;
+
+        &lt;ArchieveToDo&gt;待办公文数量&lt;/ArchieveToDo&gt;
+
+        &lt;ArchieveDoing&gt;在办公文数量&lt;/ArchieveDoing&gt;
+
+        &lt;ArchieveDone&gt;已办公文数量&lt;/ArchieveDone&gt;
+		
+		&lt;ArchieveNoDone&gt;已办未结公文数量&lt;/ArchieveNoDone&gt; 
+		
+        &lt;ArchieveYesDone&gt;已办完结公文数量&lt;/ArchieveYesDone&gt; 
+        
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>修改密码</h4>
+
+<ul>
+
+<li>输入：<ol>
+
+<li>LoginPWD：原密码</li>
+
+<li>NewPwd：  新密码</li>
+
+</ol>
+
+</li>
+
+
+
+<li>接口名称：mobile_modifyPassWord.action<br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;Status&gt;OK&lt;/Status&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>查看公文列表</h4>
+
+<ul>
+
+<li>输入：<ol>
+
+<li>StartID:起始页，分页显示用，0开始，换页的时候该参数变化</li>
+
+<li>PageSize：  每页大小，分页显示用</li>
+
+<li>ArchieveType：文件类型 0收件箱/1在办箱/2已办箱/3已办未结/4已办完结</li>
+
+<li>DocTitle：办文标题（用于查询）</li>
+
+<li>SendUser：发送人（用于查询）</li>
+
+</ol>
+
+</li>
+
+<li>接口名称：mobile_archieveList.action<br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;StartID&gt;当前页&lt;/StartID&gt;
+
+        &lt;PageSize&gt;页大小&lt;/PageSize&gt;
+
+        &lt;MaxPage&gt;最大页数&lt;/MaxPage&gt;
+
+        &lt;ArchieveType&gt;文件类型&lt;/ArchieveType&gt;
+
+        &lt;ArchieveList&gt;
+
+            &lt;ArchieveItem&gt;
+
+                &lt;ArchieveID&gt;文件ID&lt;/ArchieveID&gt;
+
+                &lt;isUrgency&gt;紧急程度 0平件/1急件/2特急件&lt;/isUrgency&gt;
+
+                &lt;ArchieveNum&gt;文件编号&lt;/ArchieveNum&gt;
+
+                &lt;ArchieveTitle&gt;文件标题&lt;/ArchieveTitle&gt;
+
+                &lt;FileType&gt;文件类型:发文/收文等&lt;/FileType&gt;
+                
+                &lt;SenderName&gt;发件人&lt;/SenderName&gt;
+                
+                &lt;SendTime&gt;发件时间&lt;/SendTime&gt;
+
+            &lt;/ArchieveItem&gt;
+
+        &lt;/ArchieveList&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>查看公文的详细信息</h4>
+
+<ul>
+
+<li>输入：<ol>
+
+<li>ArchieveType：文件类型 0收件箱/1在办箱/2已办箱</li>
+
+<li>ArchieveId  ：文件ID </li>
+
+</ol>
+
+</li>
+
+<li>接口名称：mobile_archieveContent.action</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UserId&gt;单位ID&lt;/UserId&gt;
+
+    &lt;UnitId&gt;用户ID&lt;/UnitId&gt;
+
+    &lt;ExchangeData&gt;
+
+       &lt;ArchieveID&gt;135432&lt;/ArchieveID&gt;    //文件ID
+
+       &lt;IsChuanyue&gt;0&lt;/IsChuanyue&gt;     // 是否传阅 
+
+       &lt;CanSendBack&gt;1&lt;/CanSendBack&gt;  //能否退回  
+
+        &lt;CanGetBack&gt;0&lt;/CanGetBack&gt;    //能否取回 
+		
+	&lt;form&gt; &lt;!-- 表单字段循环 --&gt;
+		
+        &lt;Item name="F_MainPlateStr" title="事项模块名称"&gt;
+ 
+        &lt;![CDATA[ ]]&gt; 
+ 
+        &lt;/Item&gt;
+  
+        &lt;Item hide="1" name="F_MainPlate" title="事项模块"&gt;
+ 
+        &lt;![CDATA[ ]]&gt; 
+ 
+        &lt;/Item&gt;
+  
+        &lt;Item name="F_Id" title="主键ID"&gt;
+ 
+        &lt;![CDATA[ 12350]]&gt; 
+ 
+        &lt;/Item&gt;
+  
+        &lt;Item name="F_Note" title="是否发送内网"&gt;
+ 
+        &lt;![CDATA[ ]]&gt; 
+ 
+        &lt;/Item&gt;
+  
+        &lt;Item name="F_BuntypeStr" title="事项类型名称"&gt;
+ 
+        &lt;![CDATA[ ]]&gt; 
+ 
+        &lt;/Item&gt;
+  
+        &lt;Item hide="1" name="F_Buntype" title="事项类型"&gt;
+ 
+        &lt;![CDATA[ ]]&gt; 
+ 
+        &lt;/Item&gt;
+  
+        &lt;Item name="F_DocTitle" title="文件标题"&gt;
+ 
+        &lt;![CDATA[ aaaaaaaa]]&gt; 
+ 
+        &lt;/Item&gt;
+ 
+        &lt;Item name="F_SendUnit" title="主送"&gt;
+ 
+        &lt;![CDATA[ ]]&gt; 
+ 
+        &lt;/Item&gt;
+  
+        &lt;Item name="F_DocCode" title="收文编号"&gt;
+ 
+        &lt;![CDATA[ aaaa]]&gt; 
+ 
+        &lt;/Item&gt;
+
+   &lt;/form&gt;
+   
+   	&lt;htmlcode&gt;
+        &lt;![CDATA[    [[{"size":1.1},{"field":"F_NiGaoBuMen","size":2.1}],[{"size":1.1},{"field":"F_DocCode","size":2.1}],[{"size":1.1},{"field":"F_DocTitle","size":2.1}],[{"size":1.1},{"field":"F_SendUnit","size":2.1}],[{"size":1.1},{"field":"F_MainPlate","size":2.1}],[{"size":1.1},{"field":"F_Buntype","size":2.1}]]
+  ]]&gt; 
+        &lt;/htmlcode&gt;
+
+            &lt;CommontList&gt;   &lt;!-意见列表 --&gt; 
+
+                &lt;RetXml&gt;
+
+                &lt;RetCode&gt;-1&lt;/RetCode&gt; 
+
+                &lt;RetMessage&gt;意见信息&lt;/RetMessage&gt;
+				
+		&lt;RetData &gt;
+		
+				 &lt;!-- 意见框循环--&gt;
+				 
+			&lt;CommentCtrl name="comment1" label="拟办意见"&gt;
+			
+			     &lt;!-- 意见框意见循环--&gt;
+				                   
+                        &lt;Comment&gt;  
+						                                             
+                        &lt;Desc&gt;                                    //意见
+						
+                        &lt;![CDATA[ sssssssssss]]&gt; 
+						
+                        &lt;/Desc&gt;
+						
+                        &lt;WorkItemId&gt;135426&lt;/WorkItemId&gt;        //填写意见时的文件ID     
+						
+                        &lt;DeptName&gt;佛山市通用版(整合)&lt;/DeptName&gt;  //部门名称
+						
+                        &lt;UserId&gt;1220024232&lt;/UserId&gt;           //用户ID
+						
+                        &lt;UserName&gt;江灯洋&lt;/UserName&gt;            //用户名称
+						
+                        &lt;DateTime&gt;2013/12/05&lt;/DateTime&gt;       //日期
+						
+						&lt;!--意见附件循环 --&gt;
+						
+                        &lt;ArchieveAttachmentItem filepath="C:\newOADmRoot\tongyong\2013\12\AppZip\20131258242073423417_2.zip"&gt; 
+						
+                        &lt;FileName&gt;
+						
+                        &lt;![CDATA[ TWQMS012201部门工作计划总结周报_江灯洋2013111820131124.xls]]&gt;  //文件名称
+						
+                        &lt;/FileName&gt;
+						
+                        &lt;FileUrl&gt;
+						
+                        &lt;![CDATA[ http://192.168.88.207:8080/oaExService_newOa//MOAFiles/APP/20131258242073423417_2/file1.xls]]&gt;  //文件URL地址
+						
+                        &lt;/FileUrl&gt;
+						
+                        &lt;FileType&gt;xls&lt;/FileType&gt; 
+						
+                        &lt;/ArchieveAttachmentItem&gt;
+						
+						&lt;!--意见附件循环结束 --&gt;
+						
+                        &lt;File fileName="20131258242073423417_2.zip" filePath="2013\12\AppZip\" fileList="新建文本文档 (4).txt#MYBEGINCHAR:,:MYENDCHAR#TWQMS012201部门工作计划总结周报_江灯洋2013111820131124.xls" fileId="250" /&gt;
+						 
+                        &lt;/Comment&gt;
+						
+						&lt;!-- 意见框意见循环结束--&gt;  
+						
+                        &lt;/CommentCtrl&gt;
+						
+                  &lt;!-- 意见框循环结束--&gt;
+				  
+                &lt;RetData /&gt;
+
+                &lt;/RetXml&gt;
+
+            &lt;/CommontList&gt;
+
+            &lt;ArchieveAttachmentsZW filepath="文档路径" &gt;
+
+                &lt;!-正文列表循环开始 --&gt;        
+
+                &lt;ArchieveAttachmentItem&gt;
+
+                    &lt;FileName&gt;文件名称&lt;/FileName&gt;
+
+                    &lt;ArchieveVersion&gt;文件版本&lt;/ArchieveVersion&gt;
+
+                    &lt;FileUrl&gt;文件URL路径。可从该路径直接下载文件&lt;/FileUrl&gt;
+
+                    &lt;FileType&gt;文件类型（Doc/jpg/gif…）&lt;/FileType&gt;
+
+                &lt;/ArchieveAttachmentItem&gt;
+
+                &lt;!-正文列表循环结束 --&gt; 
+                
+                &lt;/ArchieveAttachmentsZW&gt;
+
+            &lt;ArchieveAttachmentsFJ filepath="文档路径"&gt;
+
+                &lt;!-附件列表循环开始 --&gt;        
+
+                &lt;ArchieveAttachmentItem&gt;
+
+                    &lt;FileName&gt;文件名称&lt;/FileName&gt;
+
+                    &lt;ArchieveVersion&gt;文件版本&lt;/ArchieveVersion&gt;
+
+                    &lt;FileUrl&gt;文件URL路径。可从该路径直接下载文件&lt;/FileUrl&gt;
+
+                    &lt;FileType&gt;文件类型（Doc/jpg/gif…）&lt;/FileType&gt;
+
+                &lt;/ArchieveAttachmentItem&gt;
+
+                &lt;!-附件列表循环结束 --&gt; 
+                
+                &lt;/ArchieveAttachmentsFJ&gt;
+
+        &lt;/ExchangeData&gt;
+
+    &lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>查看公文的流程信息列表</h4>
+
+<ul>
+
+<li>输入：<ol>
+
+<li>ArchieveId：文件ID</li>
+
+</ol>
+
+</li>
+
+<li>接口名称：mobile_aFlowInfo_NodeList.action<br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UserId&gt;0&lt;/UserId&gt;
+
+    &lt;UnitId&gt;2&lt;/UnitId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;ArchieveFlowInfoList&gt;
+
+            &lt;!-- 循环开始 --&gt;
+
+            &lt;FlowNode archieveID="工作id" flowNodeID="环节ID" flowNodeName="环节名" status="状态"&gt;
+				&lt;FlowItem userId="用户id" userName="用户名" deptId="部门id" deptName="部门名称" time="时间" status="状态"/&gt;
+            &lt;/FlowNode&gt;
+
+
+            &lt;!-- 循环结束 --&gt;
+
+        &lt;/ArchieveFlowInfoList&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>查看公文的流程详细信息</h4>
+
+<ul>
+
+<li>输入：<ol>
+
+<li>ArchieveId：文件ID</li>
+
+<li>FlowNodeID：环节ID</li>
+
+</ol>
+
+</li>
+
+<li>接口名称：mobile_aFlowInfo_NodeContent.action<br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UserId&gt;0&lt;/UserId&gt;
+
+    &lt;UnitId&gt;2&lt;/UnitId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;ArchieveID&gt;136708&lt;/ArchieveID&gt;
+
+        &lt;FlowNodeID&gt;1730&lt;/FlowNodeID&gt;
+
+        &lt;FlowNodeInfo&gt;
+
+            ---- 循环开始 ----
+
+            &lt;flownodeinfoitem&gt;
+
+                &lt;flownodeusername&gt;用户名&lt;/flownodeusername&gt;
+
+                &lt;departname&gt;部门&lt;/departname&gt;
+
+                &lt;starttime&gt;开始时间&lt;/starttime&gt;
+
+                &lt;endtime&gt;结束时间&lt;/endtime&gt;
+
+                &lt;checkintime&gt;签收时间&lt;/checkintime&gt;
+
+                &lt;flownoteyijian&gt;意见&lt;/flownoteyijian&gt;
+
+                &lt;ArchieveState&gt;环节状态(1待签收、3在办、6已办)&lt;/ArchieveState&gt;
+
+            &lt;/flownodeinfoitem&gt;
+
+            ---- 循环结束 ----
+
+        &lt;/FlowNodeInfo&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>获取本环节自己已签署的意见</h4>
+
+<ul>
+
+<li>输入：<ol>
+
+<li>ArchieveId：文件ID</li>
+
+</ol>
+
+</li>
+
+<li>接口名称：mobile_archieveIdeaResponse.action<br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UserId&gt;单位ID&lt;/UserId&gt;
+
+    &lt;UnitId&gt;用户ID&lt;/UnitId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;ArchieveID&gt;公文ID&lt;/ArchieveID&gt;
+
+        &lt;ArchieveIdea&gt;本环节意见&lt;/ArchieveIdea&gt;
+		
+       &lt;!--循环 --&gt;
+	   
+       &lt;ArchieveAttachmentItem filepath="C:\newOADmRoot\tongyong\2013\12\AppZip\20131258242073423417_2.zip"&gt; 
+	   
+       &lt;FileName&gt;
+	   
+       &lt;![CDATA[ TWQMS012201部门工作计划总结周报_江灯洋2013111820131124.xls]]&gt;  //文件名称
+	   
+       &lt;/FileName&gt;
+	   
+       &lt;FileUrl&gt;
+	   
+       &lt;![CDATA[ http://192.168.88.207:8080/oaExService_newOa//MOAFiles/APP/20131258242073423417_2/file1.xls]]&gt;   //文件URl
+	   
+       &lt;/FileUrl&gt;
+	   
+       &lt;FileType&gt;xls&lt;/FileType&gt; 
+	   
+  &lt;/ArchieveAttachmentItem&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>提交意见</h4>
+
+<ul>
+
+<li>输入：<ol>
+
+<li>ArchieveId：文件ID</li>
+
+<li>ArchieveYijian：意见</li>
+
+</ol>
+
+</li>
+
+<li>接口名称：mobile_archieveIdea.action<br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UserId&gt;单位ID&lt;/UserId&gt;
+
+    &lt;UnitId&gt;用户ID&lt;/UnitId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;ArchieveID&gt;公文ID&lt;/ArchieveID&gt;
+
+        &lt;ArchieveCheck&gt;1&lt;/ArchieveCheck&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>传阅件发送</h4>
+
+<ul>
+
+<li>输入：<ol>
+
+<li>ArchieveId：文件ID</li>
+
+</ol>
+
+</li>
+
+<li>接口名称：mobile_archieveSend_ChuanYue.action<br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;isPassed&gt;1&lt;/isPassed&gt;
+
+        &lt;!-- 成功显示 --&gt;        
+
+        &lt;Status&gt;1&lt;/Status&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+<h4>查看公告列表</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<li>StartID:列表起始ID，分页显示用，起始ID以0开始，这个请求是MOA动态的</li>
+
+<li>iPageSize：  每页大小，分页显示用</li>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_bulletinList.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;StartID&gt;列表起始ID&lt;/StartID&gt;
+
+        &lt;PageSize&gt;每页大小&lt;/PageSize&gt;
+
+        &lt;MaxPage&gt;最大页数&lt;/MaxPage&gt;
+
+        &lt;BulletinList&gt;
+
+            &lt;!-- 循环开始 --&gt;        
+
+            &lt;BulletinItem&gt;
+
+                &lt;BulletinId&gt;公告ID&lt;/BulletinId&gt;
+
+                &lt;BulletinTitle&gt;标题&lt;/BulletinTitle&gt;
+                
+                &lt;Sender&gt;发件人&lt;/Sender&gt;
+                
+                &lt;ReleaseDate&gt;发布时间&lt;/ReleaseDate&gt;
+                
+                &lt;ExpireDate&gt;失效时间&lt;/ExpireDate&gt;
+
+            &lt;/BulletinItem&gt;
+
+            &lt;!-- 循环结束 --&gt; 
+            
+            &lt;/BulletinList&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>查看公告详情</h4>
+
+<ul>
+
+<li>输入：<ol>
+
+<li>BulletinId:  公告ID </li>
+
+</ol>
+
+</li>
+
+<li>接口名称：mobile_bulletinContent.action</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;Faburen&gt;发布人&lt;/Faburen&gt;
+
+        &lt;Title&gt;标题&lt;/Title&gt;
+
+        &lt;Content&gt;内容&lt;/Content&gt;
+
+        &lt;ReleaseDate&gt;发布时间&lt;/ReleaseDate&gt;
+
+        &lt;ExpireDate&gt;失效时间&lt;/ExpireDate&gt;
+
+        &lt;BulletinAttachments&gt;
+
+            &lt;!-附件列表循环开始 --&gt;        
+
+            &lt;ArchieveAttachmentItem&gt;
+
+                &lt;FileName&gt;文件名称&lt;/FileName&gt;
+
+                &lt;FileUrl&gt;文件URL路径。可从改路径直接下载文件&lt;/FileUrl&gt;
+
+                &lt;FileType&gt;文件类型（Doc/jpg/gif…）&lt;/FileType&gt;
+
+                &lt;ArchieveVersion&gt;文件版本&lt;/ArchieveVersion&gt;
+
+            &lt;/ArchieveAttachmentItem&gt;
+
+            &lt;!-附件列表循环结束 --&gt; 
+            
+            &lt;/BulletinAttachments&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>查看个人日程安排和公共日程工作列表</h4>
+
+<ul>
+
+<li>
+
+<p>输入：</p>
+
+<ol>
+
+<li>StartID:列表起始ID，分页显示用，起始ID以0开始，这个请求是MOA动态的</li>
+
+<li>iPageSize：  每页大小，分页显示用</li>
+
+</ol>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_calendarList.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;CalendarList&gt;
+
+            &lt;!-- 循环开始 --&gt;        
+
+            &lt;CalendarItem&gt;
+
+                &lt;CalendarId&gt;日程ID&lt;/CalendarId&gt;
+
+                &lt;CalendarTitle&gt;日程标题&lt;/CalendarTitle&gt;
+
+                &lt;CalendarTime&gt;时间&lt;/CalendarTime&gt;
+
+            &lt;/CalendarItem&gt;
+
+            &lt;!-- 循环开始 --&gt; 
+            
+            &lt;/CalendarList&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>查看日程详情</h4>
+
+<ul>
+
+<li>输入：<ol>
+
+<li>CalendarID:  日程ID </li>
+
+</ol>
+
+</li>
+
+<li>接口名称：mobile_calendarContent.action</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;CalendarUser&gt;用户&lt;/CalendarUser&gt;
+
+        &lt;CalendarTime&gt;日期&lt;/CalendarTime&gt;
+
+        &lt;CalendarTitle&gt;标题&lt;/CalendarTitle&gt;
+
+        &lt;CalendarContent&gt;内容&lt;/CalendarContent&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>查看通讯录人员信息</h4>
+
+<ul>
+
+<li>输入：无</li>
+
+<li>接口名称：mobile_address_book.action</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;!—部门循环开始 --&gt;        
+
+        &lt;DepartmentItem&gt;
+
+            &lt;DepartmentID&gt;部门ID&lt;/DepartmentID&gt;
+
+            &lt;DepartmentName&gt;部门名称&lt;/DepartmentName&gt;
+
+            &lt;DepartMans&gt;
+
+                &lt;!—用户循环开始 --&gt;        
+
+                &lt;DepartManItem&gt;
+
+                    &lt;DepartUserID&gt;用户ID&lt;/DepartUserID&gt;
+
+                    &lt;DepartUserName&gt;姓名&lt;/DepartUserName&gt;
+
+                    &lt;DepartUserNum&gt;手机号&lt;/DepartUserNum&gt;
+
+                &lt;/DepartManItem&gt;
+
+                &lt;!—用户循环结束 --&gt; &lt;/DepartMans&gt;
+
+        &lt;/DepartmentItem&gt;
+
+        &lt;!—部门循环结束 --&gt;        
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+<h4>短信发送</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<li>ReceiveMob：接收手机号，以英文逗号隔开</li>
+
+<li>Smscontent： 发送内容</li>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_SMSSend.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;SMSendStatus&gt;发送状态（0失败1成功）&lt;/SMSendStatus&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>已发短信查询</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>ToUserMob: 接收电话</li>
+
+<li>ContentType：短信类型（1：会议通知；2：行程安排；3：收发文；4：其他;）</li>
+
+<li>StartTime:开始时间</li>
+
+<li>EndTime：结束时间</li>
+
+<li>SmsContent：短信内容</li>
+
+<li>StartID：   列表起始ID，分页显示用，起始ID以0开始</li>
+
+<li>PageSize：  每页大小，分页显示用</li>
+
+</ol>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_querySendSMS.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+        &lt;StartID&gt;当前页&lt;/StartID&gt;
+
+        &lt;PageSize&gt;页大小&lt;/PageSize&gt;
+
+        &lt;MaxPage&gt;最大页数&lt;/MaxPage&gt;
+
+		&lt;SMSSendList&gt;
+
+			&lt;SMS id="47"&gt;
+
+				&lt;Content&gt;短信内容&lt;/Content&gt; 
+
+  				&lt;ContentType&gt;短信类型&lt;/ContentType&gt; 
+
+  				&lt;SendTime&gt;发送时间&lt;/SendTime&gt; 
+
+  				&lt;SendNum&gt;发送号码（多个，用"；"分隔）&lt;/SendNum&gt; 
+
+				&lt;ReceiveId&gt;回复短信id&lt;/ReceiveId&gt; 
+
+  			&lt;/SMS&gt;
+
+		&lt;/SMSSendList&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>回复短信查询</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>Id:回复短信id</li>
+
+<li>ToUserMob: 接收电话</li>
+
+<li>ContentType：短信类型（1：会议通知；2：行程安排；3：收发文；4：其他;）</li>
+
+<li>StartTime:开始时间</li>
+
+<li>EndTime：结束时间</li>
+
+<li>SmsContent：短信内容</li>
+
+<li>State：短信状态（1：未阅；3：已阅；）</li>
+
+<li>StartID：   列表起始ID，分页显示用，起始ID以0开始</li>
+
+<li>PageSize：  每页大小，分页显示用</li>
+
+</ol>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_queryReceiveSMS.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+    	&lt;StartID&gt;当前页&lt;/StartID&gt;
+
+        &lt;PageSize&gt;页大小&lt;/PageSize&gt;
+
+        &lt;MaxPage&gt;最大页数&lt;/MaxPage&gt;
+
+		&lt;SMSReceiveList&gt;
+
+			&lt;SMS id="3"&gt;
+
+				&lt;Content&gt;短信内容&lt;/Content&gt; 
+
+				&lt;ContentType&gt;短信类型&lt;/ContentType&gt; 
+
+				&lt;SendTime&gt;接收时间&lt;/SendTime&gt; 
+
+				&lt;SendNum&gt;发送短信号码&lt;/SendNum&gt; 
+
+			&lt;/SMS&gt;
+
+		&lt;/SMSReceiveList&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>文件查询</h4>
+
+<ul>
+
+<li>
+
+<p>输入： 下列字段可选</p>
+
+<ol>
+
+<li>DocId      文件编号</li>
+
+<li>DocCode    文件字号</li>
+
+<li>FromUnit   来文单位</li>
+
+<li>DocTitle   文件标题</li>
+
+<li>DateStart  创建日期开始</li>
+
+<li>DateEnd    创建日期结束</li>
+
+<li>FileType   办文类型</li>
+
+<li>Activity   文件流程</li>
+
+<li>SelfDo  自己办理过的(0：否/1：是)</li>
+
+<li>ArchieveType   办文类型（0：待办/1：在办/2：已办）</li>
+
+<li>StartID:     列表起始ID，分页显示用，起始ID以0开始</li>
+
+<li>PageSize：  每页大小，分页显示用</li>
+
+</ol>
+
+</li>
+
+<li>
+
+<p>接口名称：：mobile_queryFile.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;       
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+&lt;ExchangeData&gt;
+
+    &lt;StartID&gt;列表起始ID&lt;/StartID&gt;
+
+    &lt;PageSize&gt;每页大小&lt;/PageSize&gt;
+
+    &lt;MaxPage&gt;最大页数&lt;/MaxPage&gt;
+
+    &lt;ArchieveList&gt;
+
+        &lt;!-循环开始--&gt;        
+
+        &lt;ArchieveItem&gt;
+
+            &lt;ArchieveID&gt;文件ID&lt;/ArchieveID&gt;
+
+            &lt;isUrgency&gt;紧急程度：平件/急件/特急件&lt;/isUrgency&gt;
+
+            &lt;ArchieveNum&gt;文件编号&lt;/ArchieveNum&gt;
+
+            &lt;ArchieveTitle&gt;文件标题&lt;/ArchieveTitle&gt;
+            
+            &lt;ArchieveType&gt;文件类型：0待办/1在办/2已办/10其他&lt;/ArchieveType&gt; 
+
+            &lt;SenderName&gt;发件人&lt;/SenderName&gt;
+                
+            &lt;SendTime&gt;发件时间&lt;/SendTime&gt;
+
+        &lt;/ArchieveItem&gt;
+
+        &lt;!-循环结束--&gt; 
+
+    &lt;/ArchieveList&gt;
+
+&lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>文件发送</h4>
+
+<ul>
+
+<li>输入： <ol>
+
+<li>ArchieveId  ：文件ID</li>
+
+<li>isPassed ：发送标识 默认为1（1为发送，0为退回）</li>
+
+</ol>
+
+</li>
+
+<li>接口名称：mobile_archieveSend.action</li>
+
+<li>
+
+<p>输出：有多种可能</p>
+
+</li>
+
+<li>
+
+<p>如后续环节为多个时，则显示</p>
+
+<pre><code>    &lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+    &lt;MobileExchange&gt;
+
+        &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+        &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+        &lt;ExchangeData&gt;
+
+            &lt;isPassed&gt;是否发送，默认为1&lt;/isPassed&gt;
+
+            &lt;isSelected /&gt;        
+
+            &lt;ArchieveID&gt;公文ID&lt;/ArchieveID&gt;
+
+            &lt;ArchieveFlowInfoList&gt;
+
+                &lt;!-- 循环开始 --&gt;        
+
+                &lt;FlowNodeItem type="文件类型（1普通类型、2传阅）"&gt;
+
+                    &lt;FlowNodeID&gt;环节ID&lt;/FlowNodeID&gt;
+
+                    &lt;FlowNodeName&gt;环节名称&lt;/FlowNodeName&gt;
+
+                &lt;/FlowNodeItem&gt;
+
+                &lt;!-- 循环结束 --&gt; 
+
+            &lt;/ArchieveFlowInfoList&gt;
+
+            &lt;Status&gt;2&lt;/Status&gt;
+
+        &lt;/ExchangeData&gt;
+
+    &lt;/MobileExchange&gt;
+
+</code></pre>
+
+<p>*1.1      手机端选择了对应的环节后再次请求本页面，此时输入参数为：</p>
+
+<ul>
+
+<li>输入:<ol>
+
+<li>ArchieveId  ：文件ID</li>
+
+<li>isPassed ：发送标识 默认为1（1为发送，0为退回）</li>
+
+<li>FlowNodeID ：环节ID</li>
+
+</ol>
+
+</li>
+
+<li>
+
+<p>输出：
+
+                1.1.1如后续环节为普通环节（非并流环节）
+
+                1.1.1.1如后续人员不只一个，则需要选择部门人员</p>
+
+<pre><code>        &lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+
+         &lt;MobileExchange&gt;
+
+          &lt;UnitId&gt;单位ID&lt;/UnitId&gt; 
+
+          &lt;UserId&gt;用户ID&lt;/UserId&gt; 
+
+          &lt;ExchangeData&gt;
+
+              &lt;isPassed&gt;1&lt;/isPassed&gt; 
+
+              &lt;isSelected /&gt; 
+
+              &lt;ArchieveID&gt;公文ID&lt;/ArchieveID&gt; 
+
+              &lt;FlowNodeID&gt;环节ID&lt;/FlowNodeID&gt; 
+
+              &lt;!-- 部门循环开始 --&gt;
+
+              &lt;DepartmentItem&gt;
+
+                  &lt;DepartmentID&gt;部门ID&lt;/DepartmentID&gt; 
+
+                  &lt;DepartmentName&gt;部门名称&lt;/DepartmentName&gt; 
+
+                  &lt;DepartMans&gt;
+
+                  &lt;!-- 部门人员循环开始 --&gt;
+
+                      &lt;DepartManItem&gt;
+
+                          &lt;DepartUserID&gt;用户ID&lt;/DepartUserID&gt; 
+
+                          &lt;DepartUserName&gt;用户名称&lt;/DepartUserName&gt; 
+
+                      &lt;/DepartManItem&gt;
+
+                  &lt;!-- 部门人员循环结束 --&gt;
+
+                  &lt;/DepartMans&gt;
+
+              &lt;/DepartmentItem&gt;
+
+              &lt;!-- 部门循环结束 --&gt;
+
+              &lt;Status&gt;3&lt;/Status&gt; 
+
+          &lt;/ExchangeData&gt;
+
+          &lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<p>1.1.1.1.1    手机端选择了对应的人员后再次请求本页面，此时输入参数为</p>
+
+<ul>
+
+<li>输入:<ol>
+
+<li>UnitID：   单位ID</li>
+
+<li>UserID：   用户ID</li>
+
+<li>ArchieveId  ：文件ID</li>
+
+<li>isPassed ：发送标识 默认为1（1为发送，0为退回）</li>
+
+<li>FlowNodeID ：环节ID</li>
+
+<li>DepartUserID 已选人员ID，以":"隔开，eg：1:2:3:4:5</li>
+
+</ol>
+
+</li>
+
+<li>
+
+<p>输出：此时后续环节部门人员都已选择好，直接发送文件并显示</p>
+
+<pre><code>      &lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+
+      &lt;MobileExchange&gt;
+
+          &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+          &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+          &lt;ExchangeData&gt;
+
+            &lt;isPassed&gt;1&lt;/isPassed&gt; 
+
+            &lt;isSelected /&gt; 
+
+            &lt;aUsernames&gt;文件已发送至XXX(传阅显示文件已发送)&lt;/aUsernames&gt;  
+
+            &lt;Status&gt;1&lt;/Status&gt; 
+
+          &lt;/ExchangeData&gt;
+
+      &lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<p>1.1.1.2如后续人员只有一个，则不需要选择部门人员，直接发送文件，并显示</p>
+
+<pre><code>                    &lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+
+                    &lt;MobileExchange&gt;
+
+                        &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+                        &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+                        &lt;ExchangeData&gt;
+
+                          &lt;isPassed&gt;1&lt;/isPassed&gt; 
+
+                          &lt;isSelected /&gt; 
+
+                          &lt;aUsernames&gt;文件已发送至XXX&lt;/aUsernames&gt;      
+
+                          &lt;Status&gt;1&lt;/Status&gt; 
+
+                        &lt;/ExchangeData&gt;
+
+                    &lt;/MobileExchange&gt;
+
+</code></pre>
+
+<p>2.如后续环节为1个时，则显示选人信息</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+
+ &lt;MobileExchange&gt;
+
+  &lt;UnitId&gt;103&lt;/UnitId&gt; 
+
+  &lt;UserId&gt;0&lt;/UserId&gt; 
+
+  &lt;ExchangeData&gt;
+
+      &lt;isPassed&gt;1&lt;/isPassed&gt; 
+
+      &lt;isSelected /&gt; 
+
+      &lt;ArchieveID&gt;公文ID&lt;/ArchieveID&gt; 
+
+      &lt;FlowNodeID&gt;环节ID&lt;/FlowNodeID&gt; 
+
+      &lt;DepartmentItem&gt;
+
+          &lt;DepartmentID&gt;0（企业ID，默认为0）&lt;/DepartmentID&gt; 
+
+          &lt;DepartmentName&gt;企业名称&lt;/DepartmentName&gt; 
+
+          &lt;DepartMans /&gt; 
+
+      &lt;/DepartmentItem&gt;
+
+      &lt;!-- 部门循环开始 --&gt;
+
+      &lt;DepartmentItem&gt;
+
+          &lt;DepartmentID&gt;部门ID&lt;/DepartmentID&gt; 
+
+          &lt;DepartmentName&gt;部门名称&lt;/DepartmentName&gt; 
+
+          &lt;DepartMans&gt;
+
+          &lt;!-- 部门人员循环开始 --&gt;
+
+              &lt;DepartManItem&gt;
+
+                  &lt;DepartUserID&gt;用户ID&lt;/DepartUserID&gt; 
+
+                  &lt;DepartUserName&gt;用户名称&lt;/DepartUserName&gt; 
+
+              &lt;/DepartManItem&gt;
+
+          &lt;!-- 部门人员循环结束 --&gt;
+
+          &lt;/DepartMans&gt;
+
+      &lt;/DepartmentItem&gt;
+
+      &lt;!-- 部门循环结束 --&gt;
+
+      &lt;Status&gt;3&lt;/Status&gt; 
+
+  &lt;/ExchangeData&gt;
+
+  &lt;/MobileExchange&gt;
+
+</code></pre>
+
+<p>3.如后续环节和后续人员都不需要选择，直接发送文件，并显示</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+
+&lt;MobileExchange&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+      &lt;isPassed&gt;1&lt;/isPassed&gt; 
+
+      &lt;isSelected /&gt; 
+
+      &lt;aUsernames&gt;文件已发送&lt;/aUsernames&gt;      
+
+      &lt;Status&gt;1&lt;/Status&gt; 
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>文件上传</h4>
+
+<ul>
+
+<li>
+
+<p>输入：</p>
+
+<ol>
+
+<li>FilePath  ：文件路径 从文件属性filepath获得</li>
+
+<li>ArchieveType：文件类型 1 正文 2附件 3 其他</li>
+
+<li>ArchieveId  ：文件ID </li>
+
+</ol>
+
+</li>
+
+<li>
+
+<p>接口名称：类似
+
+http://localhost:8080/oaExService_newOa/MobileFileUploadServlet
+
+localhost==中转项目的IP地址   文件上传功能在中转项目和OA在同一个服务器下才能正常工作。</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess ="true"&gt;
+
+    &lt;filepath&gt;文件物理路径&lt;/filepath&gt;
+
+    &lt;ArchieveId&gt;文件ID&lt;/ArchieveId&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>用户常用意见</h4>
+
+<ul>
+
+<li>
+
+<p>输入： 无参数</p>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_getUserAdvices.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;       
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+&lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+&lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+&lt;ExchangeData&gt;
+
+	&lt;AdviceList userId="1220020091"&gt;
+
+		&lt;Advice id="74" sort="1"&gt;
+
+			&lt;Text&gt;意见内容（纯文字）&lt;/Text&gt; 
+
+			&lt;Html&gt;&lt;![CDATA[ 意见内容（带格式）  ]]&gt; &lt;/Html&gt;
+
+		&lt;/Advice&gt;
+
+	&lt;/AdviceList&gt;
+
+&lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>办文取回</h4>
+
+<ul>
+
+<li>
+
+<p>输入： </p>
+
+<ol>
+
+<li>ArchieveId  ：文件ID</li>
+
+</ol>
+
+</li>
+
+<li>
+
+<p>接口名称：：mobile_archieveGetBack.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;       
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+&lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+&lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+&lt;ExchangeData&gt;
+
+	&lt;Status&gt;0表示失败，1表示成功&lt;/Status&gt; 
+
+	&lt;NewArchieveId&gt;新工作id，失败时返回-1&lt;/NewArchieveId&gt;
+
+&lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+<h4>收发短信手机号列表</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>StartID：  列表起始ID，分页显示用，起始ID以0开始</li>
+
+<li>PageSize：  每页大小，分页显示用</li>
+
+</ol>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_smsPhoneList.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+    	&lt;StartID&gt;当前页&lt;/StartID&gt;
+
+        &lt;PageSize&gt;页大小&lt;/PageSize&gt;
+
+        &lt;MaxPage&gt;最大页数&lt;/MaxPage&gt;
+
+        &lt;PhoneList&gt;
+        	&lt;Phone number="手机号码" time="接收或发送时间"&gt;				
+        		&lt;Content&gt;内容简要(前12字)&lt;/Content&gt;
+        	&lt;/Phone&gt;
+        &lt;/PhoneList&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>查询短信收发列表</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>StartID：  列表起始ID，分页显示用，起始ID以0开始</li>
+
+<li>PageSize：  每页大小，分页显示用</li>
+
+</ol>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_smsMessageList.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+    	&lt;StartID&gt;当前页&lt;/StartID&gt;
+
+        &lt;PageSize&gt;页大小&lt;/PageSize&gt;
+
+        &lt;MaxPage&gt;最大页数&lt;/MaxPage&gt;
+
+        &lt;MessageList&gt;
+            &lt;Message type="短信类型，发送:0；接收:1" time="发送或接收时间"&gt;
+                &lt;Content&gt;短信内容&lt;/Content&gt;
+            &lt;/Message&gt;
+        &lt;/MessageList&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>日程安排汇总列表</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>StartTime：	开始时间</li>
+
+<li>EndTime：	结束时间</li>
+
+</ol>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_calendarDayTasks.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+    	&lt;Calenders&gt;
+        	&lt;Day date="日期，格式：2013-7-23" count="任务总数"/&gt;
+        &lt;/Calenders&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+<h4>日程安排详情列表</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>StartTime：	开始时间</li>
+
+<li>EndTime：	结束时间</li>
+
+</ol>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_calendarTaskList.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;        
+
+&lt;MobileExchange isSuccess="true"&gt;
+
+    &lt;UnitId&gt;单位ID&lt;/UnitId&gt;
+
+    &lt;UserId&gt;用户ID&lt;/UserId&gt;
+
+    &lt;ExchangeData&gt;
+
+    	&lt;Calenders&gt;
+    	    &lt;task id="任务id" type="类型：0本人，1公共"&gt;
+    	    	&lt;CalendarUser&gt;用户&lt;/CalendarUser&gt;
+    	    	&lt;CalendarTime&gt;日期&lt;/CalendarTime&gt;
+    	    	&lt;CalendarTitle&gt;标题&lt;/CalendarTitle&gt;
+    	    	&lt;CalendarContent&gt;内容&lt;/CalendarContent&gt;
+            &lt;/task&gt;
+    	&lt;/Calenders&gt;
+
+    &lt;/ExchangeData&gt;
+
+&lt;/MobileExchange&gt;
+
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>获取通知公告类型列表</h4>
+
+<ul>
+
+<li>输入：无</li>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_noticeTypeList.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>
+ &lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+ &lt;MobileExchange isSuccess="true"&gt;
+  &lt;UserId&gt;2&lt;/UserId&gt; 
+  &lt;UnitId&gt;3&lt;/UnitId&gt; 
+ &lt;NoticeTypeList&gt;
+ &lt;NoticeType id="46"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知公告(集团) 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/NoticeType&gt;
+ &lt;NoticeType id="47"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知公告(高压) 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/NoticeType&gt;
+ &lt;NoticeType id="48"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知公告(禅燃) 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/NoticeType&gt;
+ &lt;NoticeType id="49"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知公告(顺德) 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/NoticeType&gt;
+ &lt;NoticeType id="50"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知公告(三水) 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/NoticeType&gt;
+ &lt;NoticeType id="51"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知公告(高明) 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/NoticeType&gt;
+ &lt;NoticeType id="52"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知公告(汽车) 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/NoticeType&gt;
+ &lt;NoticeType id="53"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知公告(液化气) 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/NoticeType&gt;
+ &lt;NoticeType id="54"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知公告(工程) 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/NoticeType&gt;
+ &lt;NoticeType id="55"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知公告(设计) 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/NoticeType&gt;
+ &lt;NoticeType id="56"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知公告(高要) 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/NoticeType&gt;
+ &lt;NoticeType id="57"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知公告(南雄) 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/NoticeType&gt;
+  &lt;/NoticeTypeList&gt;
+  &lt;/MobileExchange&gt;
+</code></pre>
+
+</li>
+
+</ul>
+<h4>获取通知公告列表</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>typeId: 通知公告类型Id（必须）</li>
+
+<li>title : 通知公告标题 （可选）</li>
+
+<li>pageNo: 当前页数（必须）</li>
+
+<li>pageSize: 分页大小（必须）</li>
+
+</ol>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_noticeList.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>
+ &lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+ &lt;MobileExchange isSuccess="true"&gt;
+  &lt;UserId&gt;2&lt;/UserId&gt; 
+  &lt;UnitId&gt;3&lt;/UnitId&gt; 
+ &lt;NoticeList totalRow="136" pageNo="1" pageSize="5" &gt;
+ &lt;Notice id="271" date="20140120 11:57:18.813"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  顺德燃气一周食堂菜谱 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;顺德管理员&lt;/CreateUserName&gt; 
+  &lt;/Notice&gt;
+ &lt;Notice id="272" date="20140120 11:53:18.603"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  关于召开中国共产党佛山市燃气集团股份有限公司委员会党员代表大会的通知 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;超级管理员&lt;/CreateUserName&gt; 
+  &lt;/Notice&gt;
+ &lt;/NoticeList&gt;
+  &lt;/MobileExchange&gt;
+</code></pre>
+
+</li>
+
+</ul>
+<h4>获取通知公告详情</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>id : 通知公告id</li>
+
+</ol>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_noticeContent.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>
+  &lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+ &lt;MobileExchange isSuccess="true"&gt;
+  &lt;UserId&gt;2&lt;/UserId&gt; 
+  &lt;UnitId&gt;3&lt;/UnitId&gt; 
+ &lt;Notice id="254"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  关于周志燊上班时间不及时处理漏气的批评通报 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;Date&gt;20140117 09:18:35.563&lt;/Date&gt; 
+  &lt;CreateUserName&gt;液化气管理员&lt;/CreateUserName&gt; 
+  &lt;Origin /&gt; 
+  &lt;ReadCount&gt;0&lt;/ReadCount&gt; 
+ &lt;Content&gt;
+ &lt;![CDATA[  ]]&gt; 
+  &lt;/Content&gt;
+ &lt;ContentWithoutHTML&gt;
+ &lt;![CDATA[   
+  ]]&gt; 
+  &lt;/ContentWithoutHTML&gt;
+  &lt;/Notice&gt;
+  &lt;/MobileExchange&gt;
+</code></pre>
+
+</li>
+
+</ul>
+<h4>获取新闻列表</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>title :新闻标题（可选）</li>
+
+<li>pageNo: 当前页数（必须）</li>
+
+<li>pageSize: 分页大小（必须）</li>
+
+
+</ol>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_newsList.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>
+ &lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+ &lt;MobileExchange isSuccess="true"&gt;
+  &lt;UserId&gt;2&lt;/UserId&gt; 
+  &lt;UnitId&gt;3&lt;/UnitId&gt; 
+ &lt;NewsList totalRow="52" pageNo="1" pageSize="5" &gt;
+ &lt;News id="269" date="20140120 11:26:14.733"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  快乐劳动最光荣 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;顺德管理员&lt;/CreateUserName&gt; 
+  &lt;/News&gt;
+ &lt;News id="38" date="20131229 13:39:57.94"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  行业动态(顺德) 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;超级管理员&lt;/CreateUserName&gt; 
+  &lt;/News&gt;
+  &lt;/NewsList&gt;
+  &lt;/MobileExchange&gt;
+</code></pre>
+
+</li>
+
+</ul>
+<h4>获取新闻详情</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>id ：新闻id（必须）</li>
+
+
+</ol>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_noticeList.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>
+  &lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+ &lt;MobileExchange isSuccess="true"&gt;
+  &lt;UserId&gt;2&lt;/UserId&gt; 
+  &lt;UnitId&gt;3&lt;/UnitId&gt; 
+ &lt;News id="269"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  快乐劳动最光荣 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;Date&gt;20140120 11:26:14.733&lt;/Date&gt; 
+  &lt;CreateUserName&gt;顺德管理员&lt;/CreateUserName&gt; 
+  &lt;Origin&gt;综合管理部何恺卉&lt;/Origin&gt; 
+  &lt;ReadCount&gt;0&lt;/ReadCount&gt; 
+ &lt;Content&gt;
+ &lt;![CDATA[  &lt;p style="TEXTALIGN: center; TEXTINDENT: 28px"&gt;&lt;span style="FONTFAMILY: 宋体; FONTSIZE: 20px"&gt;快乐劳动最光荣&lt;/span&gt;&lt;/p&gt;&lt;p style="TEXTINDENT: 28px"&gt;&lt;span style="FONTFAMILY: Calibri"&gt;2014&lt;/span&gt;&lt;span style="FONTFAMILY: 宋体"&gt;年&lt;/span&gt;&lt;span style="FONTFAMILY: Calibri"&gt;1&lt;/span&gt;&lt;span style="FONTFAMILY: 宋体"&gt;月&lt;/span&gt;&lt;span style="FONTFAMILY: Calibri"&gt;11&lt;/span&gt;&lt;span style="FONTFAMILY: 宋体"&gt;日周六上午，由顺德燃气综合管理部统筹组织，各部门组成的一行&lt;/span&gt;&lt;span style="FONTFAMILY: Calibri"&gt;12&lt;/span&gt;&lt;span style="FONTFAMILY: 宋体"&gt;人义务劳动志愿者们精神饱满地从公司出发前往大良站，参加为期半天的除草活动。分好组后，志愿者们立马拿起工具，有条不紊地干起活儿来。男士们充分发挥绅士精神，三五下就拔掉杂草开出一条路，当女同事不够力气拔起草根时积极过去帮忙。女士们巾帼不让须眉，一改往日柔弱的形象，每个人都用尽全力去除草、运草、铲泥，即使裤子上、衣服上都是污泥也毫无怨言。&lt;/span&gt;&lt;/p&gt;&lt;p style="TEXTINDENT: 28px"&gt;&lt;span style="FONTFAMILY: 宋体"&gt;在这里没有抱怨，没有放弃，只有青春的汗水、阳光的笑脸、团结的队伍和合拍的默契，当我们看到这两块空地从原来杂草横生、堆满垃圾到现在已经全部铲平并铺好水泥沙，即使再苦再累也是值得的，同时大家也表示以后公司再有类似有意义的活动都会踊跃参与，愿这份积极向上的风气能感染更多的同事参与。&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="FONTFAMILY: &#39;Calibri&#39;,&#39;sansserif&#39;; FONTSIZE: 14px"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/span&gt;&lt;span style="FONTFAMILY: 宋体; FONTSIZE: 14px"&gt;（综合管理部&lt;/span&gt; &lt;span style="FONTFAMILY: 宋体; FONTSIZE: 14px"&gt;何恺卉）&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="FONTFAMILY: 宋体; FONTSIZE: 14px"&gt;&lt;/span&gt;&nbsp;&lt;/p&gt;&lt;p&gt;&lt;img style="WIDTH: 720px; HEIGHT: 541px" title="幻灯片1.JPG" border="0" hspace="0" src="/ProductOA/resource/ueditor/jsp/ips/269/20140120/20140120112439854.JPG" width="720" height="541"/&gt;&lt;/p&gt;&lt;p&gt;&lt;img style="WIDTH: 720px; HEIGHT: 541px" title="幻灯片2.JPG" border="0" hspace="0" src="/ProductOA/resource/ueditor/jsp/ips/269/20140120/20140120112439947.JPG" width="720" height="541"/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="FONTFAMILY: 宋体; FONTSIZE: 14px"&gt;&lt;/span&gt;&nbsp;&lt;/p&gt; 
+  ]]&gt; 
+  &lt;/Content&gt;
+ &lt;ContentWithoutHTML&gt;
+ &lt;![CDATA[  快乐劳动最光荣2014年1月11日周六上午，由顺德燃气综合管理部统筹组织，各部门组成的一行12人义务劳动志愿者们精神饱满地从公司出发前往大良站，参加为期半天的除草活动。分好组后，志愿者们立马拿起工具，有条不紊地干起活儿来。男士们充分发挥绅士精神，三五下就拔掉杂草开出一条路，当女同事不够力气拔起草根时积极过去帮忙。女士们巾帼不让须眉，一改往日柔弱的形象，每个人都用尽全力去除草、运草、铲泥，即使裤子上、衣服上都是污泥也毫无怨言。在这里没有抱怨，没有放弃，只有青春的汗水、阳光的笑脸、团结的队伍和合拍的默契，当我们看到这两块空地从原来杂草横生、堆满垃圾到现在已经全部铲平并铺好水泥沙，即使再苦再累也是值得的，同时大家也表示以后公司再有类似有意义的活动都会踊跃参与，愿这份积极向上的风气能感染更多的同事参与。（综合管理部何恺卉） 
+  ]]&gt; 
+  &lt;/ContentWithoutHTML&gt;
+  &lt;/News&gt;
+  &lt;/MobileExchange&gt;
+</code></pre>
+
+</li>
+
+</ul>
+<h4>获取知识中心类型列表</h4>
+
+<ul>
+
+<li>输入：无</li>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_knowledgeTypeList.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>
+  &lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+ &lt;MobileExchange isSuccess="true"&gt;
+  &lt;UserId&gt;2&lt;/UserId&gt; 
+  &lt;UnitId&gt;3&lt;/UnitId&gt; 
+ &lt;KnowledgeType id="1"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  知识中心 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="37"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  管理基础 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="39"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  政策法规 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="98"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  法律 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="99"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  行政法规 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="104"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  地方性法规 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="105"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  部门规章 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="106"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  地方政府规章 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="107"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  部门规范性文件 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="108"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  地方规范性文件 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="352"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  常用标准 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="521"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  标准目录 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="524"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  行业标准 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="525"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  国家标准 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="523"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  标准动态 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="40"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  规章制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="676"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  审计监察规章制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="678"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="679"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="680"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  表格 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="110"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  行政管理规章制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="671"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="635"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="636"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  表格 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="637"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  出国境备案 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="638"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  印章管理 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="639"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  文书管理 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="640"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  车辆管理 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
++ &lt;KnowledgeType id="114"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全技术规章制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="682"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="693"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="683"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  表格 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="684"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全生产应急预案 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="685"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  技术管理制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="686"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  材料(设备)采购管理制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="687"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  信息化管理制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="688"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  设备管理办法 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="689"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事故报告调查和处理规定 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="690"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  燃气计量管理制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="691"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  固定资产实物编码指引 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="692"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  科技档案制度及细则 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="694"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  技术规程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="113"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  人力资源规章制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="642"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="652"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="643"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  表格 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="644"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  人物 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="645"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  劳动 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="646"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  培训 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="647"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  招聘 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="648"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  组织 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="649"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  绩效 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="650"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  职位 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="651"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  薪酬 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="111"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  财务管理规章制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="681"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="695"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="696"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  表格 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="116"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  经营管理规章制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="700"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="701"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  表格 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="702"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  流程指引 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="115"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  投资管理规章制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="703"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="704"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  指引及表格 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="705"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程管理 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="706"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  投资管理 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="707"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  招投标管理 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="641"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  党群工作规章制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="674"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="698"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="699"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  表格 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="47"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  党工团知识体系 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="118"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  党委 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="119"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工会 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="120"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  团委 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="54"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  计算机技术 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="165"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  硬件知识 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="166"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  常用软件 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="167"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  计算机网络 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="168"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  信息安全 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="169"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  其他 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="264"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  每月一语 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="539"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  港华KMF体系 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="540"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  客户服务 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="541"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  人力资源 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="542"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  市场经营 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="543"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  项目开发 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="544"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  水务相关 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="545"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  其他 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
++ &lt;KnowledgeType id="38"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  内部信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="346"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  公司简介 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="56"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  燃气行业信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="285"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  天然气行业动态 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="350"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  液化气行业动态 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="280"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  技术信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="282"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  参展信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="283"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="284"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  价格信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="279"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="292"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  集团部门信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="293"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  总经办 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="294"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  审计部 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="295"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  财务部 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="296"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  人力资源部 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="297"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安技部 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="298"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  投资管理部 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="460"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  招标管理信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="625"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程管理信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="299"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  经营管理部 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="300"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  二级公司信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="301"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  高压管网 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="401"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  信息简报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="535"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  公司常用法律法规 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="548"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  相关法律法规 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="554"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  综合类 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="556"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  国际公约 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="555"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  职业健康保护 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="558"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工会工作 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="559"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  防护用品 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="553"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全类 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="560"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事故管理 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="561"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  危险化学品管理 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="562"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  档案管理 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="563"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  劳动管理 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="564"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  机动车辆管理 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="557"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  特种设备 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="550"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  职业健康安全法规、标准 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="565"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  综合 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="566"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="567"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全标识 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="568"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  消防安全 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="569"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程设计 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="570"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  施工与验收 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="571"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  特种设备 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="572"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事故与应急 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="573"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  职业健康 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="574"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  机械安全 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="575"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  危险化学品 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="576"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  防护用品 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="577"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  电气仪表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="578"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  防腐保护 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="579"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  防震减灾 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="580"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  交通运输 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="581"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  设备材料 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="302"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  禅城燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="310"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  停气作业报告 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="311"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  居民安检计划 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="312"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全生产月报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="313"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  信息月报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="314"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  客服月报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="315"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安康杯 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="316"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  生产例会纪要 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="317"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程例会纪要 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="318"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  专题会议纪要 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="385"&gt;
+ &lt;Name&gt;
+
+ &lt;![CDATA[  换表工作方案 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="742"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  集团标准规范 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="303"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  三水燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="552"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  拓展用户进度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="589"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  会议纪要 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="590"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程例会纪要 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="591"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  专题会议纪要 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="592"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  部门例会会议纪要 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="593"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  班组例会会议纪要 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="594"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  其它 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="595"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  月报 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="596"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  部门月报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="597"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  其他 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="598"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  活动方案 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="599"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安康杯 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="600"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全宣传 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="601"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  消防演习 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="602"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  运动会 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="603"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  其他 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="604"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  客服专题 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="605"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  月度安检计划 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="606"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  点火员每日安排 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="607"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  地管立管验收信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="608"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  散户看现场情况 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="609"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  扣费计划 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="610"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  每日工程费用 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="611"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  每日气费信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="612"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  新签楼盘立项信息 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="613"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  炉具超市 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="614"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  党工群 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="615"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  内审工作 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="616"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  班组建设 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="617"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  合理化建议 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="619"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  奖惩通知 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="620"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  台账管理专题 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="621"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  员工资格证台账等（安技） 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="622"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  专业技术论文 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="623"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  照片集 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="624"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  其他 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="304"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  高明燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="387"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全生产月报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="389"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安康杯 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="391"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  税法快递 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="392"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程例会 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="393"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  培训工作 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="394"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  党工群 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="395"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  抢修演习报告 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="396"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  停带气作业报告 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="397"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  学习及经验报告 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="398"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  创文工作报告 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="399"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  论文 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="400"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  会计知识汇萃 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="490"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  公司月度例会 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="305"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  汽车燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="481"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程项目 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="482"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全技改 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="483"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  财税政策 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="484"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  财税知识 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="477"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  信息专栏 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="478"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  公司制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="526"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  专题会议纪要 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="527"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  活动方案 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="306"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程与设计 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="319"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程月报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="320"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全月报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="322"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程会议纪要 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="382"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  违规工作汇总分析 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="383"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程值班表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="384"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程旧通知 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="307"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  液化气 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="375"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  公司风采 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="323"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  瓶装气调价表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="324"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全月报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="326"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  客服月报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="327"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  值班表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="328"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程会议纪要 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="351"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  企业文化动态 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="381"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  旧通知 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="308"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  高要云浮佛燃 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="309"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  南雄佛燃 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="510"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  顺德燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="511"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  通知通告 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="512"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  新闻资讯 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="513"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  规章制度 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="514"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  常用文档 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="515"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  SQS频道 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="516"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  内刊 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="517"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  读书专栏 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="518"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  党群活动 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="519"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  缤纷地带 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="717"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  正气大讲堂 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="741"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全及技术资讯 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="329"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  办公表格 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="330"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  收发文类 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="331"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  人力资源类 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="430"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  绩效 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="431"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  劳动 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="432"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  培训 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="433"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  薪酬 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="434"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  招聘 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="435"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  职位 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="436"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  组织 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="332"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  财务类 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="333"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  行政类 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="630"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  车辆管理 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="632"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  出国境备案 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="633"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  文书 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="634"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  印章 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="334"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  招标类 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="335"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程类 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="428"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  投资类 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="336"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  其他 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="491"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  党务公开栏 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="492"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  制度建设 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="493"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  组织建设 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="494"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  党风廉政建设 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="495"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  公示 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="496"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  党组织动态 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="497"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  政策法规文件 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="498"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  党员发展情况 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="499"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  党组织量化考核情况 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="501"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  党费收缴情况 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="708"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工会专栏 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="709"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工会制度文件 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="710"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工会组织建设 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="711"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工会职工文体活动 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="712"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工会组织动态 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="713"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  会员发展情况 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="714"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工会创先争优情况 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="716"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  代管互助金情况 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="341"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  图片资料库 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="379"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  PPT素材 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="447"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  集团本部 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="439"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  高压管网 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="438"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  禅城燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="440"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  三水燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="442"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  高明燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="429"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  汽车燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="437"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  液化气 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="443"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程与设计 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="444"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  高要、云浮燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="446"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  南雄燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="378"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  供应商资料 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="380"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  本部旧资料 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="386"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  电话表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
++ &lt;KnowledgeType id="45"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  个人园地 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="78"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  案例共享 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="79"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  经验总结 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="80"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  实践体会 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="81"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  技术积累 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="82"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  学术论文 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="83"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  园艺建设 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
++ &lt;KnowledgeType id="46"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  流程归档 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="85"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  集团本部 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="404"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  收文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="405"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="407"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  公章使用审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="425"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  部门发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="459"&gt;
+ &lt;Name&gt;
+
+ &lt;![CDATA[  班子会议纪要审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="462"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  信息发布审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="463"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  供应商调研分析流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="465"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  软件使用情况申报流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="479"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  舆情简报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="528"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  集团饭堂接待用餐流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="536"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  证件使用审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="719"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事前审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="86"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  高压管网 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="408"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  收文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="409"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="466"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  报障流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="487"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  内部新闻流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="488"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程简报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="489"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  生产运营简报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="529"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工作联系单 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="530"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  内部通知 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="534"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  财务简报流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="551"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  安全生产月报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="583"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工团组织 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="584"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  活力支部 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="585"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  青年天地 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="588"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  用车申请 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="721"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事前审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="587"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  员工休假申请 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="737"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  邮箱 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="738"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  网聚乐谈 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="739"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  资金申请表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="87"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  禅城燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="411"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  收文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="412"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="473"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  部门发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="722"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事前审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="740"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  合同审批 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="88"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  三水燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="413"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  收文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="414"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="723"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事前审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="89"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  汽车燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="415"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  收文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="416"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="485"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  用印审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="486"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工作请示 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="724"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事前审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="90"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  高明燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="417"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  收文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="418"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="725"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事前审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="91"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工程与设计 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="419"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  收文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="420"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="480"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  用印流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="726"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事前审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="92"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  液化气 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="421"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  收文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="422"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="448"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  用印审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="449"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  采购申请单 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="450"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  采购信息表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="451"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  采购审批表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="452"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  业务申请表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="453"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  会议纪要 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="454"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  工业用气价格日报 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="455"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  销售价格审批表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="456"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  文件审批表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="457"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  维修申请表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="458"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  作业报告书 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="461"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  优惠价申请 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="464"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  培训申请表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="475"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  商业客户优惠申请表 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="727"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事前审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="93"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  高要佛燃 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="423"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  收文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="424"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="505"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  用印审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="520"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  部门联络流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="728"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事前审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="95"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  南雄佛燃 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="502"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="503"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  收文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="504"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  用印审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="729"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事前审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="506"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  顺德燃气 
+  ]]&gt; 
+  &lt;/Name&gt;
+ &lt;sonList&gt;
+ &lt;KnowledgeType id="507"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  收文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="508"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  发文流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="509"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  用印审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+ &lt;KnowledgeType id="730"&gt;
+ &lt;Name&gt;
+ &lt;![CDATA[  事前审批流程 
+  ]]&gt; 
+  &lt;/Name&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/sonList&gt;
+  &lt;/KnowledgeType&gt;
+  &lt;/MobileExchange&gt;
+</code></pre>
+
+</li>
+
+</ul>
+<h4>获取知识列表</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>typeId: 知识类型id（必须）</li>
+
+<li>title: 知识标题</li>
+
+<li>pageNo: 当前页数（必须）</li>
+
+<li>pageSize: 分页大小（必须）</li>
+</ol>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_knowledgeList.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>
+  &lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+ &lt;MobileExchange isSuccess="true"&gt;
+  &lt;UserId&gt;2&lt;/UserId&gt; 
+  &lt;UnitId&gt;3&lt;/UnitId&gt; 
+ &lt;KnowledgeList totalRow="22616" pageNo="0" pageSize="10"&gt;
+ &lt;Knowledge id="24516" date="20140120 16:21:06.507"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  1.21江湾二路10号7座 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;梁银冰&lt;/CreateUserName&gt; 
+  &lt;/Knowledge&gt;
+ &lt;Knowledge id="24515" date="20140120 16:20:51.233"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  1.21环湖别墅区 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;梁银冰&lt;/CreateUserName&gt; 
+  &lt;/Knowledge&gt;
+ &lt;Knowledge id="24514" date="20140120 16:20:14.217"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  1.20南庄吉利工业园 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;梁银冰&lt;/CreateUserName&gt; 
+  &lt;/Knowledge&gt;
+ &lt;Knowledge id="24511" date="20140120 16:19:57.803"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  1.16紫洞南路96号二区4座01（港宏世家一期别墅片区） 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;徐瑶凯&lt;/CreateUserName&gt; 
+  &lt;/Knowledge&gt;
+ &lt;Knowledge id="24510" date="20140120 16:19:40.05"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  1.15张槎一路（W04908阀后） 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;徐瑶凯&lt;/CreateUserName&gt; 
+  &lt;/Knowledge&gt;
+ &lt;Knowledge id="24293" date="20140120 16:13:42.623"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  测试3 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;集团管理员&lt;/CreateUserName&gt; 
+  &lt;/Knowledge&gt;
+ &lt;Knowledge id="24501" date="20140113 11:10:30.88"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  OA控件手动安装包 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;超级管理员&lt;/CreateUserName&gt; 
+  &lt;/Knowledge&gt;
+ &lt;Knowledge id="24504" date="20140108 18:15:44.43"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  111东华轩片区 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;梁银冰&lt;/CreateUserName&gt; 
+  &lt;/Knowledge&gt;
+ &lt;Knowledge id="24499" date="20140108 18:15:26.473"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  18汾江南路18号D座首层A1层 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;梁银冰&lt;/CreateUserName&gt; 
+  &lt;/Knowledge&gt;
+ &lt;Knowledge id="24502" date="20140108 18:15:10.687"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  19华新路片区（W03606阀后） 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;CreateUserName&gt;梁银冰&lt;/CreateUserName&gt; 
+  &lt;/Knowledge&gt;
+  &lt;/KnowledgeList&gt;
+  &lt;/MobileExchange&gt;
+</code></pre>
+
+</li>
+
+</ul>
+<h4>获取知识详情</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>id: 知识Id</li>
+
+
+</ol>
+
+</ul>
+
+</li>
+
+<li>
+
+<p>接口名称：mobile_knowledgeContent.action</p>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>
+  &lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+ &lt;MobileExchange isSuccess="true"&gt;
+  &lt;UserId&gt;2&lt;/UserId&gt; 
+  &lt;UnitId&gt;3&lt;/UnitId&gt; 
+ &lt;Knowledge id="22616"&gt;
+ &lt;Title&gt;
+ &lt;![CDATA[  【集团】公章审批表 
+  ]]&gt; 
+  &lt;/Title&gt;
+  &lt;Date&gt;20131101 08:55:56.6&lt;/Date&gt; 
+  &lt;CreateUserName&gt;曹世锋&lt;/CreateUserName&gt; 
+  &lt;ReadCount&gt;0&lt;/ReadCount&gt; 
+ &lt;Content&gt;
+ &lt;![CDATA[  &lt;div class="attachArea"&gt;&lt;p class="attachTitle"&gt;相关附件：&lt;/p&gt;&lt;p class="attachList"&gt;&lt;img src="http://192.168.88.207:8080/ProductOA//resource/ueditor/dialogs/attachment/fileTypeImages/icon_default.png"/&gt;&lt;a href="http://192.168.88.207:8080/ProductOA//resource/ueditor/jsp/knowledge/22616/2014121283711296448.html"&gt;【集团】公章审批表.html&lt;/a&gt;&lt;/p&gt;&lt;/div&gt; 
+  ]]&gt; 
+  &lt;/Content&gt;
+ &lt;ContentWithoutHTML&gt;
+ &lt;![CDATA[  相关附件：【集团】公章审批表.html 
+  ]]&gt; 
+  &lt;/ContentWithoutHTML&gt;
+  &lt;/Knowledge&gt;
+  &lt;/MobileExchange&gt;
+</code></pre>
+
+</li>
+
+
+
+
+</ul>
+
+<h4>公共通讯录</h4>
+
+<ul>
+
+<li>输入：无</li>
+
+<li>接口名称：mobile_addressBookCommon.action
+ <br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>
+  &lt;?xml version="1.0" encoding="UTF8" ?&gt; 
+ &lt;MobileExchange isSuccess="true"&gt;
+  &lt;UserId&gt;2&lt;/UserId&gt; 
+  &lt;UserName&gt;超级管理员&lt;/UserName&gt; 
+  &lt;UnitId&gt;3&lt;/UnitId&gt; 
+ &lt;AddressBookCommonGroups&gt;
+  &lt;AddressBookGroup id="2"&gt;开发部&lt;/AddressBookGroup&gt; 
+  &lt;AddressBookGroup id="6"&gt;业务部&lt;/AddressBookGroup&gt; 
+  &lt;AddressBookGroup id="7"&gt;实施部&lt;/AddressBookGroup&gt; 
+  &lt;/AddressBookCommonGroups&gt;
+  &lt;/MobileExchange&gt;
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>个人通讯录</h4>
+
+<ul>
+
+<li>输入：无</li>
+
+<li>接口名称：mobile_addressBookPerson.action <br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>
+&lt;?xml version="1.0" encoding="UTF8" ?&gt; 
+ &lt;MobileExchange isSuccess="true"&gt;
+  &lt;UserId&gt;2&lt;/UserId&gt; 
+  &lt;UserName&gt;超级管理员&lt;/UserName&gt; 
+  &lt;UnitId&gt;3&lt;/UnitId&gt; 
+ &lt;AddressBookCommonGroups&gt;
+  &lt;AddressBookGroup id="2"&gt;开发部&lt;/AddressBookGroup&gt; 
+  &lt;AddressBookGroup id="6"&gt;业务部&lt;/AddressBookGroup&gt; 
+  &lt;AddressBookGroup id="7"&gt;实施部&lt;/AddressBookGroup&gt; 
+  &lt;/AddressBookCommonGroups&gt;
+  &lt;/MobileExchange&gt;
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>通讯录列表</h4>
+
+<ul>
+
+<li>输入：</li>
+<ol>
+
+<li>gId:  AddressBookGroup 的Id（必须）</li>
+
+<li>searchName: 查找条件（名称）</li>
+
+<li>pageNo: 当前页数（必须）</li>
+
+<li>pageSize: 分页大小（必须）</li>
+
+</ol>
+
+<li>接口名称：mobile_addressBookList.action <br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>
+  &lt;?xml version="1.0" encoding="UTF8" ?&gt; 
+ &lt;MobileExchange isSuccess="true"&gt;
+  &lt;UserId&gt;2&lt;/UserId&gt; 
+  &lt;UserName&gt;超级管理员&lt;/UserName&gt; 
+  &lt;UnitId&gt;3&lt;/UnitId&gt; 
+ &lt;AddressBookGroup id="2" totalRow="1" pageNo="1" pageSize="5"&gt;
+ &lt;AddressBook id="78"&gt;
+  &lt;Name&gt;陈红磊&lt;/Name&gt; 
+  &lt;Sex&gt;男&lt;/Sex&gt; 
+  &lt;Mobile&gt;15689744554&lt;/Mobile&gt; 
+  &lt;Telephone /&gt; 
+  &lt;Fax /&gt; 
+  &lt;EMail&gt;jidemeihao@163.com&lt;/EMail&gt; 
+  &lt;QQ /&gt; 
+  &lt;BirthDate /&gt; 
+  &lt;DepartmentName&gt;gy&lt;/DepartmentName&gt; 
+  &lt;Address /&gt; 
+  &lt;PostCode /&gt; 
+  &lt;Desc /&gt; 
+  &lt;/AddressBook&gt;
+  &lt;/AddressBookGroup&gt;
+  &lt;/MobileExchange&gt;
+</code></pre>
+
+</li>
+
+</ul>
+
+<h4>通讯录详情</h4>
+
+<ul>
+
+<li>输入：</li>
+
+<ol>
+
+<li>id:  通讯录记录（必须）</li>
+
+
+</ol>
+<li>接口名称：mobile_addressBookInfo.action <br>
+
+</li>
+
+<li>
+
+<p>输出：</p>
+
+<pre><code>
+  &lt;?xml version="1.0" encoding="UTF8" ?&gt; 
+ &lt;MobileExchange isSuccess="true"&gt;
+  &lt;UserId&gt;2&lt;/UserId&gt; 
+  &lt;UserName&gt;超级管理员&lt;/UserName&gt; 
+  &lt;UnitId&gt;3&lt;/UnitId&gt; 
+ &lt;AddressBook id="78"&gt;
+  &lt;Name&gt;陈红磊&lt;/Name&gt; 
+  &lt;Sex&gt;男&lt;/Sex&gt; 
+  &lt;Mobile&gt;15689744554&lt;/Mobile&gt; 
+  &lt;Telephone /&gt; 
+  &lt;Fax /&gt; 
+  &lt;EMail&gt;jidemeihao@163.com&lt;/EMail&gt; 
+  &lt;QQ /&gt; 
+  &lt;BirthDate /&gt; 
+  &lt;DepartmentName&gt;gy&lt;/DepartmentName&gt; 
+  &lt;Address /&gt; 
+  &lt;PostCode /&gt; 
+  &lt;Desc /&gt; 
+  &lt;/AddressBook&gt;
+  &lt;/MobileExchange&gt;
+</code></pre>
+
+</li>
+
+</ul>
+</body></html>

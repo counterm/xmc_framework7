@@ -1,0 +1,85 @@
+<!-- 通知公告 -->
+<result>
+	<bulletinList>
+		<StartID>0</StartID>
+		<PageSize>20</PageSize>
+		<CurrPage>1</CurrPage>
+		<RecordCount>109</RecordCount>
+		<PageCount>6</PageCount>
+
+		<BulletinItem>
+			<BulletinId>212</BulletinId>
+			<ReleaseDate>2015-5-29</ReleaseDate>
+			<BulletinTitle><![CDATA[关于六一儿童节放假通知]]></BulletinTitle>
+			<SendUserName>系统管理员</SendUserName>
+			<BulletinIsTop>TRUE</BulletinIsTop>
+		</BulletinItem>
+		<BulletinItem>
+			<BulletinId>213</BulletinId>
+			<ReleaseDate>2015-5-29</ReleaseDate>
+			<BulletinTitle><![CDATA[关于调整“迁建、扩建项目前期技术工作组”的通知]]></BulletinTitle>
+			<SendUserName>系统管理员</SendUserName>
+			<BulletinIsTop>TRUE</BulletinIsTop>
+		</BulletinItem>
+		<BulletinItem>
+			<BulletinId>214</BulletinId>
+			<ReleaseDate>2015-5-29</ReleaseDate>
+			<BulletinTitle><![CDATA[关于举办集团中层管理人员上半年培训课的通知（时间及要求已调整）]]></BulletinTitle>
+			<SendUserName>系统管理员</SendUserName>
+			<BulletinIsTop>TRUE</BulletinIsTop>
+		</BulletinItem>
+		<BulletinItem>
+			<BulletinId>215</BulletinId>
+			<ReleaseDate>2015-5-29</ReleaseDate>
+			<BulletinTitle><![CDATA[第十一届学术交流会征文通知]]></BulletinTitle>
+			<SendUserName>系统管理员</SendUserName>
+			<BulletinIsTop>TRUE</BulletinIsTop>
+		</BulletinItem>
+		<BulletinItem>
+			<BulletinId>216</BulletinId>
+			<ReleaseDate>2015-5-29</ReleaseDate>
+			<BulletinTitle><![CDATA[大厦饭堂餐具使用的温馨提示]]></BulletinTitle>
+			<SendUserName>系统管理员</SendUserName>
+			<BulletinIsTop>TRUE</BulletinIsTop>
+		</BulletinItem>
+		<BulletinItem>
+			<BulletinId>217</BulletinId>
+			<ReleaseDate>2015-5-29</ReleaseDate>
+			<BulletinTitle><![CDATA[关于公布2015年度重大建设项目的通知]]></BulletinTitle>
+			<SendUserName>系统管理员</SendUserName>
+			<BulletinIsTop>TRUE</BulletinIsTop>
+		</BulletinItem>
+		<BulletinItem>
+			<BulletinId>218</BulletinId>
+			<ReleaseDate>2015-5-29</ReleaseDate>
+			<BulletinTitle><![CDATA[关于张飞同志的任职通知]]></BulletinTitle>
+			<SendUserName>系统管理员</SendUserName>
+			<BulletinIsTop>TRUE</BulletinIsTop>
+		</BulletinItem>
+		<BulletinItem>
+			<BulletinId>219</BulletinId>
+			<ReleaseDate>2015-5-29</ReleaseDate>
+			<BulletinTitle><![CDATA[2015年第二季度组织学习内容的安排]]></BulletinTitle>
+			<SendUserName>系统管理员</SendUserName>
+			<BulletinIsTop>TRUE</BulletinIsTop>
+		</BulletinItem>
+		<BulletinItem>
+			<BulletinId>220</BulletinId>
+			<ReleaseDate>2015-4-29</ReleaseDate>
+			<BulletinTitle><![CDATA[关于2015年5月份采购计划的通知]]></BulletinTitle>
+			<SendUserName>系统管理员</SendUserName>
+			<BulletinIsTop>TRUE</BulletinIsTop>
+		</BulletinItem>
+		<BulletinItem>
+			<BulletinId>221</BulletinId>
+			<ReleaseDate>2015-4-29</ReleaseDate>
+			<BulletinTitle><![CDATA[温馨提示]]></BulletinTitle>
+			<SendUserName>系统管理员</SendUserName>
+			<BulletinIsTop>TRUE</BulletinIsTop>
+		</BulletinItem>
+		
+	</bulletinList>
+
+
+</result>
+

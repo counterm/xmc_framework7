@@ -1,0 +1,79 @@
+<result>　　
+
+	<FlowNode id="6811">
+		<flowNodeName>开始</flowNodeName>
+		<status>已完成</status>
+		<FlowNodeItem>
+			<archieveID>299701</archieveID>
+			<deptId>30</deptId>
+			<deptName>市场经营部</deptName>
+			<status>已完成</status>
+			<userId>476</userId>
+			<userName>江七</userName>
+			<startTime>2015-05-17 14:09</startTime>　
+			<signTime>2015-05-17 14:09</signTime>
+			<endTime>2015-05-17 14:19</endTime>
+		</FlowNodeItem>
+	</FlowNode>
+
+	<FlowNode id="6815">
+		<flowNodeName>申请</flowNodeName>
+		<status>已完成</status>
+		<FlowNodeItem>
+			<archieveID>299702</archieveID>
+			<deptId>30</deptId>
+			<deptName>市场经营部</deptName>
+			<status>已完成</status>
+			<userId>476</userId>
+			<userName>江七</userName>
+			<startTime>2015-05-17 14:19</startTime>　
+			<signTime>2015-05-17 14:39</signTime>
+			<endTime>2015-05-17 15:29</endTime>
+		</FlowNodeItem>
+		<FlowNodeItem>
+			<archieveID>299702</archieveID>
+			<deptId>30</deptId>
+			<deptName>市场经营部</deptName>
+			<status>已完成</status>
+			<userId>476</userId>
+			<userName>江七2</userName>
+			<startTime>2015-05-17 14:19</startTime>　
+			<signTime>2015-05-17 14:39</signTime>
+			<endTime>2015-05-17 15:29</endTime>
+		</FlowNodeItem>
+	</FlowNode>
+
+	<FlowNode id="6817">
+		<flowNodeName>部门负责人意见</flowNodeName>
+		<status>已完成</status>
+		<FlowNodeItem>
+			<archieveID>299723</archieveID>
+			<deptId>121</deptId>
+			<deptName>部门副经理</deptName>
+			<status>已完成</status>
+			<userId>538</userId>
+			<userName>王五</userName>
+			<startTime>2015-05-17 15:29</startTime>　
+			<signTime>2015-05-17 16:17</signTime>
+			<endTime>2015-05-17 16:34</endTime>
+			<comment>同意</comment>
+		</FlowNodeItem>
+	</FlowNode>
+
+	<FlowNode id="6814">
+		<flowNodeName>综合部意见</flowNodeName>
+		<status>未签收</status>
+		<FlowNodeItem>
+			<archieveID>300220</archieveID>
+			<deptId>33</deptId>
+			<deptName>综合部</deptName>
+			<status>已完成</status>
+			<userId>5</userId>
+			<userName>何总</userName>
+			<startTime>2015-05-17 16:34</startTime>　
+			<signTime>2015-05-18 10:22</signTime>
+			<endTime>2015-05-18 11:01</endTime>
+		</FlowNodeItem>
+	</FlowNode>
+	
+</result>

@@ -1,0 +1,83 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+          <a href="index.html" class="back link">
+            <i class="icon icon-back"></i>
+            <span>
+              返回
+            </span>
+          </a>
+        </div>
+        <div class="center">
+          填写意见
+        </div>
+        <div class="right">
+          <a href="#" id="save" class="external"
+              __data-temp="" 
+              __data-tempdata='{"title":123, "content":"321"}'
+              data-dummy='{"_url": "saveComment", "id": {{archieveId}}}' 
+              __data-tempswap='{"content":"htmlCode"}'
+              data-root="result"
+              data-cbData="archieveOpinionSubmitValidate"
+              __data-cbFinish=""
+              data-cbBeforeLoad="archieveOpinionBeforeload">
+            提交
+          </a>
+        </div>
+    </div>
+</div>
+
+
+<div data-page="opinion" class="page">
+
+    <div class="page-content">
+      <div class="list-block">
+        <ul>
+          <li>
+            <div class="item-content">
+              <div class="item-inner"> 
+                <div class="item-tittle label">常用意见:</div>                   
+                <div class="item-input">
+                  <select>
+                    <!-- 常用意见 -->
+                  </select>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-input">
+                  <textarea placeholder="请输入意见内容" id="archieve-opinion-textarea">{{content}}</textarea>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <script type="app/script">
+        window.archieveOpinionSubmitValidate = function(data){
+          if (data.success && data.success == 'true'){
+            $$.ext.loading(0);
+            app.alert("发送成功", "温馨提示", function(){mainView.router.back()});
+          }else{
+            $$.ext.loading(0);
+            app.alert("发送失败", "温馨提示");
+          }
+          return false;
+        };
+
+        window.archieveOpinionBeforeload = function(pageObject){
+          var param = pageObject.getParam();
+          param.content = $$("#archieve-opinion-textarea").val();
+        }
+
+      </script>
+    </div>
+
+
+</div>
+
+

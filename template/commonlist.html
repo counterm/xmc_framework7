@@ -1,0 +1,26 @@
+<!-- 简单通用列表模板，如通知公告 -->
+<!-- This block will be displayed if anything found, and this list block is used a searbar target -->
+<div class="list-block media-list search-here searchbar-found">
+    <ul>       
+        {{#each list}}
+        <li>
+        <a href="#" class="item-content item-link external"
+        data-temp="bulletin-content"
+        data-dummy='{"_url": "bulletincontent","id": {{BulletinId}}}'
+        data-root="result">
+            <div class="item-inner">
+                <div class="item-title-row">
+                    <div class="item-title" style="white-space: normal">
+                        {{#if BulletinTitle}}{{BulletinTitle}}{{/if}}
+                    </div>
+                </div>
+                <div class="item-subtitle">
+                    {{#if ReleaseDate}}{{ReleaseDate}}{{/if}}
+                </div>
+            </div>
+        </a>
+        </li>
+        {{/each list}}
+    </ul>
+</div>
+

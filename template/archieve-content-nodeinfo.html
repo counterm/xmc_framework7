@@ -1,0 +1,60 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+          <a href="index.html" class="back link">
+            <i class="icon icon-back"></i>
+            <span>
+              返回
+            </span>
+          </a>
+        </div>
+        <div class="center">
+          文件流程信息
+        </div>
+    </div>
+</div>
+
+<div class="pages navbar-through">
+  <div data-page="information" class="page">
+    <div class="page-content">
+
+      <div class="list-block">
+        <ul>
+          {{#each FlowNode}}
+            <li class="accordion-item">
+              <a class="item-link item-content" href="#">
+                <div class="item-inner">
+                  <div class="item-tittle">{{flowNodeName}}</div>
+                  <div class="item-after">{{status}}</div>
+                </div>
+              </a>
+              <div class="accordion-item-content">
+                <div class="content-block">
+                  <div class="list-block media-list">
+                    <ul>
+                      {{#each FlowNodeItem}}
+                      <li>
+                        <a href="#" class="item-link item-content">
+                          <div class="item-inner">
+                            <div class="item-title">{{userName}} {{deptName}}</div>
+                            <div class="item-subtitle">开始时间:{{startTime}}</div>
+                            <div class="item-subtitle">签收时间:{{signTime}}</div>
+                            <div class="item-subtitle">结束时间:{{endTime}}</div>
+                            {{#if comment}}<div class="item-subtitle">意见:{{comment}}</div>{{/if}}
+                          </div>
+                        </a>         
+                      </li>
+                      {{/each}}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {{/each}}
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>

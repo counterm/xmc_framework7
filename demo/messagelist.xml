@@ -1,0 +1,61 @@
+<!-- 消息中心 -->
+<result>
+	<messageList>
+		<!-- <item>
+			<content>您有一份新公文</content>
+			<id></id>
+			<sendTime>2015-5-29</sendTime>
+		</item> -->
+		<!-- (item>content{您有一份新公文}+id{$@}+sendTime{2015-5-29})*5 -->
+		<item>
+			<content>您有一份新公文</content>
+			<id>1</id>
+			<sendTime>2015-5-29</sendTime>
+		</item>
+		<item>
+			<content>您有一份新公文</content>
+			<id>2</id>
+			<sendTime>2015-5-29</sendTime>
+		</item>
+		<item>
+			<content>您有一份新公文</content>
+			<id>3</id>
+			<sendTime>2015-5-29</sendTime>
+		</item>
+		<item>
+			<content>您有一份新公文</content>
+			<id>4</id>
+			<sendTime>2015-5-29</sendTime>
+		</item>
+		<item>
+			<content>您有一份新公文</content>
+			<id>5</id>
+			<sendTime>2015-5-29</sendTime>
+		</item>
+		<item>
+			<content>您有一份新通知</content>
+			<id>6</id>
+			<sendTime>2015-5-28</sendTime>
+		</item>
+		<item>
+			<content>您有一份新通知</content>
+			<id>7</id>
+			<sendTime>2015-5-28</sendTime>
+		</item>
+		<item>
+			<content>您有一份新通知</content>
+			<id>8</id>
+			<sendTime>2015-5-28</sendTime>
+		</item>
+		<item>
+			<content>您有一份新通知</content>
+			<id>9</id>
+			<sendTime>2015-5-28</sendTime>
+		</item>
+		<item>
+			<content>您有一份新通知</content>
+			<id>10</id>
+			<sendTime>2015-5-28</sendTime>
+		</item>
+	</messageList>
+</result>

@@ -1,0 +1,123 @@
+.ic {
+	display: inline-block;
+	width: 1.5em;
+	height: 1.5em;
+	fill: currentColor;
+}
+
+.infinite-scroll-preloader{
+	margin-top: -20px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+/* ==========================================================================
+Example showing how to change the color/size of the icons:
+.ic-name {
+		font-size: 32px;
+		fill: red;
+}
+========================================================================== */
+
+/**********************通用**********************/
+.list-block .item-title {
+	white-space: normal;
+}
+
+/*svg遮挡a标签的bug?*/
+.ic-svgbug {
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	display: block;
+	position: absolute;
+}
+
+/* Change Status Bar background when panel is opened */        
+/* body.with-panel-right-cover .statusbar-overlay{
+    background-color: #fff;
+}  */
+
+/**********************通用End**********************/
+
+/*文件流转-列表*/
+.list-block.media-list .item-link .item-title-row, .list-block li.media-item .item-link .item-title-row {
+
+	/* padding-right: 20px;
+	background: no-repeat right center;
+	background-image: url("../img/i-list-chevron-right.png");
+	background-size: 8px; */
+	padding-right: 0;
+	background: none;
+}
+.list-block .item-subtitle {
+	/*color: #8e8e93*/
+	font-size: 12px;
+}
+.ic-description-pingjian {
+	width: 2.5em;
+	height: 2.5em;
+	fill: #70b950;
+}
+.ic-description-jijian {
+	width: 2.5em;
+	height: 2.5em;
+	fill: #449ce6;
+}
+.ic-description-teji {
+	width: 2.5em;
+	height: 2.5em;
+	fill: #f07043;
+}
+.txt-pingjian{
+	color:#000;
+}
+.txt-jijian {
+	color: #1382de;
+}
+.txt-teji {
+	color: #d81718;
+}
+.ic-report {
+	width: 30px;
+	height: 30px;
+}
+.ic-assignment {
+	width: 30px;
+	height: 30px;
+}
+.ic-done {
+	width: 30px;
+	height: 30px;
+}
+.ic-done-all {
+	width: 30px;
+	height: 30px;
+}
+.ic-attach-file{
+	width: 1em;
+	height: 1em;
+}
+/*文件信息内容*/
+
+/*.pages [data-page="content"]{
+	padding: 1em;
+} */
+
+/* 首页侧栏图标 */
+i.icon.icon-archieve {
+  width: 29px;
+  height: 29px;
+  background-image: url("../img/i-archieve.png");
+}
+i.icon.icon-notice {
+  width: 29px;
+  height: 29px;
+  background-image: url("../img/i-notice.png");
+}
+i.icon.icon-message {
+  width: 29px;
+  height: 29px;
+  background-image: url("../img/i-message.png");
+}
+

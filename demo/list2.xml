@@ -1,0 +1,87 @@
+<result>
+	<archieveList>
+
+		<ArchieveItem>
+			<ArchieveID>209179</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[关于李小川先生等任职的通知]]></ArchieveTitle>
+			<FileType>公司内部文件传阅 </FileType>
+			<SenderName>盛小云</SenderName>
+			<SendTime>2015-04-01 14:38:29</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>203174</ArchieveID>
+			<isUrgency>0</isUrgency>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[信息第七期]]></ArchieveTitle>
+			<FileType>收文流程（通知类）</FileType>
+			<SenderName>卢小婷</SenderName>
+			<SendTime>2015-03-25 17:05:12</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>201744</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum>20150071</ArchieveNum>
+			<ArchieveTitle><![CDATA[关于认真做好学习相关工作的通知]]></ArchieveTitle>
+			<FileType>收文</FileType>
+			<SenderName>盛小云</SenderName>
+			<SendTime>2015-03-24 16:31:43</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>192054</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[关于印发《教育实践活动实施方案》的通知]]></ArchieveTitle>
+			<FileType>公司内部文件传阅 </FileType>
+			<SenderName>盛小云</SenderName>
+			<SendTime>2015-03-14 16:04:49</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>192075</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[关于成立体育活动领导小组、办公室及专项小组的通知]]></ArchieveTitle>
+			<FileType>公司内部文件传阅 </FileType>
+			<SenderName>盛小云</SenderName>
+			<SendTime>2015-03-14 16:07:08</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>192109</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[关于召开教育实践活动动员大会的通知]]></ArchieveTitle>
+			<FileType>公司内部文件传阅 </FileType>
+			<SenderName>盛小云</SenderName>
+			<SendTime>2015-03-14 16:12:03</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>188943</ArchieveID>
+			<isUrgency>0</isUrgency>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[信息第六期]]></ArchieveTitle>
+			<FileType>收文流程（通知类）</FileType>
+			<SenderName>卢小婷</SenderName>
+			<SendTime>2015-03-12 10:02:45</SendTime>
+		</ArchieveItem>
+		<ArchieveItem>
+			<ArchieveID>157049</ArchieveID>
+			<isUrgency/>
+			<ArchieveNum/>
+			<ArchieveTitle><![CDATA[2014年度年终工作总结会-会议纪要]]></ArchieveTitle>
+			<FileType>公司内部文件传阅 </FileType>
+			<SenderName>黄大志</SenderName>
+			<SendTime>2015-01-24 14:59:47</SendTime>
+		</ArchieveItem>
+
+	</archieveList>
+
+	<archieveType>2</archieveType>
+	<todo>6</todo>
+	<doing>28</doing>
+	<done>8</done>
+	<doneAll>0</doneAll>
+	<pageSize>10</pageSize>
+	<startId>0</startId>
+
+</result>

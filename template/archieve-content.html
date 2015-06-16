@@ -1,0 +1,145 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="index.html" class="back link"><i class="icon icon-back"></i><span>返回</span></a>
+        </div>
+        <div class="center">文件信息</div>
+        <div class="right">
+            <a href="#" class="link icon-only open-panel">
+                <i class="icon icon-bars"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+    
+<div class="page" data-page="content" >
+
+    <div class="page-content"> 
+        <!-- 表单信息 -->
+        <div class="content-block-title">{{title}}</div>
+        <div class="content-block">
+            <div class="content-block-inner">
+                <!-- 以下是直接从接口读取的html数据 -->
+                {{htmlCode}}
+            </div>
+        </div>
+
+        <!-- 意见栏 -->
+        <div class="list-block cards-list">
+            <ul>
+                {{#each commentList.item}}
+                    <li class="card">
+                        <div class="card-header">{{name}}</div>
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                {{content}}<br/>
+                                {{deptName}} {{userName}}
+                            </div>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+        
+        <!-- 正文附件栏 -->
+        <div class="list-block cards-list">
+            <ul>
+                <li class="card">
+                    <div class="card-header">正文</div>
+                    <div class="card-content">
+                        <div class="list-block">
+                            <ul style="padding-left:0">
+                                <li>
+                                    <a class="item-content item-link">   
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <svg class="ic ic-attach-file"><use xlink:href="#ic-attach-file"></use></svg>佛424240234.doc
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="item-content item-link">   
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <svg class="ic ic-attach-file"><use xlink:href="#ic-attach-file"></use></svg>佛424240234.pdf
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="card-header">附件</div>
+                    <div class="card-content">
+                        <div class="list-block">
+                            <ul style="padding-left:0">
+                                <li>
+                                    <a class="item-content item-link">  
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <svg class="ic ic-attach-file"><use xlink:href="#ic-attach-file"></use></svg>佛424240234.doc
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="item-content item-link">   
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <svg class="ic ic-attach-file"><use xlink:href="#ic-attach-file"></use></svg>佛424240234.pdf
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div><!-- page-content END-->
+
+
+    <div class="toolbar tabbar tabbar-labels">
+        <div class="toolbar-inner">
+            <a href="#" class="link external"
+                data-temp="archieve-content-opinion" 
+                __data-tempdata='{"title":123, "content":"321"}'
+                data-dummy='{"_url": "comment", "id": {{id}}}' 
+                __data-tempswap='{"content":"htmlCode"}'
+                data-root="result">
+                <i class="icon link">
+                    <div class="icon ic-svgbug"></div>
+                    <svg class="ic ic-border-color"><use xlink:href="#ic-border-color"></use></svg>
+                </i>
+                <span class="tabbar-label">填写意见</span>
+            </a>
+            <a href="#" class="link external"
+                data-temp="archieve-content-nodeinfo" 
+                __data-tempdata='{"title":123, "content":"321"}'
+                data-dummy='{"_url": "getArchieveNode", "id": {{id}}}' 
+                __data-tempswap='{"content":"htmlCode"}'
+                data-root="result"
+                data-xmlArray="FlowNodeItem">
+                <i class="icon link">
+                    <div class="icon ic-svgbug"></div>   
+                    <svg class="ic ic-event" style=""><use xlink:href="#ic-event"></use></svg>
+                </i>
+                <span class="tabbar-label">流程信息</span>
+            </a>
+            <a href="archieve-content-continue.html" class="link">
+                <i class="icon link">
+                    <div class="icon ic-svgbug"></div>
+                    <svg class="ic ic-send" style=""><use xlink:href="#ic-send"></use></svg>
+                </i>
+                <span class="tabbar-label">发送文件</span>
+            </a>
+
+        </div>
+    </div>
+
+</div><!-- page END-->

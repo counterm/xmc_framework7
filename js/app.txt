@@ -1,0 +1,26 @@
+v0.5.3
+2015-05-29
+1. 修复PageDefault.getTemplate()中存在空情况bug;
+2. 添加调试输出模式，会输出所有模板以及服务器访问情况，转换情况以供调试，并保存最近20次的输出结果；
+3. PageDefault增加模板映射属性 isReload -> "data-reload", 当设置了（默认是设置成data-reload="1"），则使用app.router.reloadContent来更新页面;
+4. xml2json转换增加参数, 数组arraySpecify， 以识别数组类型的节点，并增加data-xmlArray以相应属性设置
+5. 增加data-reload模板属性设置，识别相应的当前页面变换
+
+v0.5.2
+2015-05-28
+1. PageDefault 内置 loading
+2. bindDataTemplate 在 PageDefault.load 中控制执行
+3. PageManager remove 中可以去除多个PageDefault，且都它们都属于指定的Page下
+4. Dom7 初始化PageDefault 归到 PageManager 中管理
+5. 调整服务端查询结构，允许在PageDefault.cbData中改变模板地址;
+6. 调整自定义表达式dummy规则，让initDummy扫描函数，可以在扫描所有元素，以实现 page 外的 dummy 扫描；
+7. 增加函数 $$.ext.alert， 让其默认显示"提示"标题；
+
+v0.5.1
+2015-05-27 
+1. 修改extend函数中出现jQuery字眼的问题;
+2. PageDefault 增加回调 cbBeforeLoad 验证参数准确性;
+3. PageDefault 增加 addParam 函数;
+4. 增加类 PageManager;
+5. PageDefault 增加参数 framepage， 随着页面销毁 ，会在PageManager中删除引用;
+6. 调整$$.ext.bindDataTemplate，如果pageObject没有模板配置，则跳过模板数据;

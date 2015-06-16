@@ -1,0 +1,71 @@
+<result>
+	<canGetBack>0</canGetBack>
+	<canSendBack>0</canSendBack>
+	<commentList>
+		<item>
+			<archieveId>300</archieveId>
+			<content>请全体同志阅。</content>
+			<dataTime>2015-05-04 15:41:38</dataTime>
+			<deptName>调研办公室</deptName>
+			<name>拟办意见</name>
+			<userId>0</userId>
+			<userName>霍金</userName>
+		</item>
+		<item/>
+	</commentList>
+	<dmFileList_fj>
+		<item>
+			<fileName>佛424240234</fileName>
+			<fileType>doc</fileType>
+			<fileUrl>http://192.168.101.60:8090/oaExService_newOa/MOAFiles/APP/20131258242073423417_2/file1.xls</fileUrl>
+		</item>
+	</dmFileList_fj>
+	<dmFileList_zw>
+		<item>
+			<fileName>佛424240234</fileName>
+			<fileType>doc</fileType>
+			<fileUrl>http://192.168.101.60:8090/oaExService_newOa/MOAFiles/APP/20131258242073423417_2/file1.xls</fileUrl>
+		</item>
+	</dmFileList_zw>
+	<htmlCode><![CDATA[
+		<table border="1" cellpadding="0" cellspacing="0" id="gongwenArea" width="100%">
+			<tbody>
+				<tr>
+					<td class="gongwenItem">
+						<span style="color: #ff0000">
+							*</span>姓名</td>
+					<td class="gongwenInputItem3">张上</td>
+					<td class="gongwenItem">
+						<span style="color: #ff0000">*</span>部门</td>
+					<td class="gongwenInputItem3">综合部</td>
+					<td class="gongwenItem">
+						<span style="color: #ff0000">*</span>岗位</td>
+					<td class="gongwenInputItem3">工程师</td>
+				</tr>
+				<tr>
+					<td class="gongwenItem">
+						<span style="color: #ff0000">*</span>本人申请</td>
+					<td colspan="5">去旅游</td>
+				</tr>
+				<tr>
+					<td class="gongwenItem">事项所属模块</td>
+					<td colspan="5">
+						<span class="sxmk" style="padding-left: 2px"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="gongwenItem">事项类型</td>
+					<td colspan="5">
+						<span style="padding-left: 2px"/>
+					</td>
+				</tr>
+			</tbody>
+		</table>]]></htmlCode>
+	<id>3</id>
+	<isChuanyue>0</isChuanyue>
+	<isUrgency>null</isUrgency>
+	<sendTime>null</sendTime>
+	<senderName>null</senderName>
+	<title>333333333</title>
+	<type>null</type>
+</result>

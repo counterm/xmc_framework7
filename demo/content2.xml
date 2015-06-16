@@ -1,0 +1,150 @@
+<result>
+	<canGetBack>0</canGetBack>
+	<canSendBack>0</canSendBack>
+	<commentList>
+		<item>
+			<archieveId>300</archieveId>
+			<content>请全体同志阅。</content>
+			<dataTime>2015-05-04 15:41:38</dataTime>
+			<deptName>调研办公室</deptName>
+			<name>拟办意见</name>
+			<userId>0</userId>
+			<userName>霍金</userName>
+		</item>
+		<item>
+			<archieveId>300</archieveId>
+			<content>请全体同志阅。</content>
+			<dataTime>2015-05-04 15:41:38</dataTime>
+			<deptName>调研办公室</deptName>
+			<name>拟办意见</name>
+			<userId>0</userId>
+			<userName>霍金</userName>
+		</item>
+	</commentList>
+	<dmFileList_fj>
+		<item>
+			<fileName>佛424240234</fileName>
+			<fileType>doc</fileType>
+			<fileUrl>http://192.168.101.60:8090/oaExService_newOa/MOAFiles/APP/20131258242073423417_2/file1.xls</fileUrl>
+		</item>
+	</dmFileList_fj>
+	<dmFileList_zw>
+		<item>
+			<fileName>佛424240234</fileName>
+			<fileType>doc</fileType>
+			<fileUrl>http://192.168.101.60:8090/oaExService_newOa/MOAFiles/APP/20131258242073423417_2/file1.xls</fileUrl>
+		</item>
+	</dmFileList_zw>
+	<htmlCode><![CDATA[
+
+		<table border="1" cellpadding="0" cellspacing="0" id="gongwenArea" width="100%">
+			<tbody>
+				<tr>
+					<td class="gongwenItem">
+						文件编号</td>
+					<td class="gongwenInputItem3">【集团】事前审批</td>
+					<td class="gongwenItem">部门经办人</td>
+					<td class="gongwenInputItem3" colspan="2">超级管理员</td>
+				</tr>
+				<tr>
+					<td class="gongwenItem">
+						<span style="color: black">使用部门</span>
+					</td>
+					<td class="gongwenInputItem3" style="width: 335px"/>
+					<td class="gongwenItem" style="width: 154px">会计凭证号</td>
+					<td class="gongwenInputItem3" colspan="2">
+						<span class="gongwenInputItem1"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="gongwenItem">类别</td>
+					<td class="gongwenInputItem1" style="width: 335px">
+						<span class="gongwenInputItem3"/>
+					</td>
+					<td class="gongwenItem" style="width: 154px">事项</td>
+					<td class="gongwenInputItem1" colspan="2"/>
+				</tr>
+				<tr>
+					<td class="gongwenItem">紧急程度</td>
+					<td class="gongwenInputItem1" colspan="4" style="width: 335px">平件</td>
+				</tr>
+				<tr>
+					<td class="gongwenItem">审批事项描述</td>
+					<td class="gongwenInputItem1" colspan="4">
+						<span class="requiredTag">*</span>主题： fffffffffff
+						<br/>
+						2015-04-15 00:00:00.0</td>
+				</tr>
+				<tr>
+					<td class="gongwenItem">待审批事项预算情况</td>
+					<td class="gongwenInputItem1" colspan="4">
+						<table style="width: 100%">
+							<tbody>
+								<tr>
+									<td width="25%"/>
+									<td>本项目经批准的年预算总额 元。截止 2015-04-15 00:00:00.0 日，已使用预算 元。剩余 元。</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td class="gongwenItem">待审批事项具体内容及金额</td>
+					<td class="gongwenInputItem1" colspan="4">
+						<table style="width: 100%">
+							<tbody>
+								<tr>
+									<td>项目</td>
+									<td>预算金额</td>
+									<td>核定限额</td>
+								</tr>
+								<tr>
+									<td/>
+									<td/>
+									<td/>
+								</tr>
+								<tr>
+									<td/>
+									<td/>
+									<td/>
+								</tr>
+								<tr>
+									<td/>
+									<td/>
+									<td/>
+								</tr>
+								<tr>
+									<td/>
+									<td/>
+									<td/>
+								</tr>
+								<tr>
+									<td/>
+									<td/>
+									<td/>
+								</tr>
+							</tbody>
+						</table>合计预算金额： </td>
+				</tr>
+				<tr>
+					<td class="gongwenItem">预计开支金额</td>
+					<td class="gongwenInputItem1" colspan="4">人民币（大写）： </td>
+				</tr>
+				<tr>
+					<td class="gongwenItem">事项所属模块</td>
+					<td class="sxmk gongwenInputItem1" colspan="4"/>
+				</tr>
+				<tr>
+					<td class="gongwenItem">事项类型</td>
+					<td class="gongwenInputItem1" colspan="4"/>
+				</tr>
+			</tbody>
+		</table>]]></htmlCode>
+	<id>2</id>
+	<isChuanyue>0</isChuanyue>
+	<isUrgency>null</isUrgency>
+	<sendTime>null</sendTime>
+	<senderName>null</senderName>
+	<title>222222</title>
+	<type>null</type>
+</result>

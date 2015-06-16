@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>天翼移动平台模板</title>
+	<!-- Path to Framework7 Library CSS-->
+	<link rel="stylesheet" href="css/framework7.css">
+
+	<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+	
+	<!-- IcoMoon SVG图标 START-->
+	<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<symbol id="ic-description" viewBox="0 0 1024 1024"><!-- 文件流转列表图标 -->
+			<title>description</title>
+			<path class="path1" d="M597.333 85.333h-341.333c-47.147 0-84.907 38.187-84.907 85.333l-0.427 682.667c0 47.147 37.76 85.333 84.907 85.333h512.427c47.147 0 85.333-38.187 85.333-85.333v-512l-256-256zM682.667 768h-341.333v-85.333h341.333v85.333zM682.667 597.333h-341.333v-85.333h341.333v85.333zM554.667 384v-234.667l234.667 234.667h-234.667z"></path>
+		</symbol>
+		<symbol id="ic-report" viewBox="0 0 1024 1024"><!-- 未签收 -->
+			<title>report</title>
+			<path class="path1" d="M671.147 128h-318.293l-224.853 224.853v318.080l224.853 225.067h318.080l225.067-224.853v-318.293l-224.853-224.853zM512 738.133c-30.507 0-55.467-24.747-55.467-55.467 0-30.507 24.96-55.467 55.467-55.467s55.467 24.747 55.467 55.467c0 30.72-24.96 55.467-55.467 55.467zM554.667 554.667h-85.333v-256h85.333v256z"></path>
+		</symbol>
+		<symbol id="ic-assignment" viewBox="0 0 1024 1024"><!-- 待办 -->
+			<title>assignment</title>
+			<path class="path1" d="M810.667 128h-178.56c-17.493-49.493-64.427-85.333-120.107-85.333s-102.613 35.84-120.107 85.333h-178.56c-47.147 0-85.333 38.187-85.333 85.333v597.333c0 47.147 38.187 85.333 85.333 85.333h597.333c47.147 0 85.333-38.187 85.333-85.333v-597.333c0-47.147-38.187-85.333-85.333-85.333zM512 128c23.467 0 42.667 18.987 42.667 42.667s-19.2 42.667-42.667 42.667-42.667-18.987-42.667-42.667 19.2-42.667 42.667-42.667zM597.333 725.333h-298.667v-85.333h298.667v85.333zM725.333 554.667h-426.667v-85.333h426.667v85.333zM725.333 384h-426.667v-85.333h426.667v85.333z"></path>
+		</symbol>
+		<symbol id="ic-done" viewBox="0 0 1024 1024"><!-- 已办未结 -->
+			<title>done</title>
+			<path class="path1" d="M384 689.92l-177.92-177.92-60.373 60.373 238.293 238.293 512-512-60.373-60.373z"></path>
+		</symbol>
+		<symbol id="ic-done-all" viewBox="0 0 1024 1024"><!-- 已办完结 -->
+			<title>done-all</title>
+			<path class="path1" d="M768 298.667l-60.373-60.373-270.507 270.72 60.373 60.373 270.507-270.72zM949.12 238.293l-451.84 451.627-177.92-177.92-60.373 60.373 238.293 238.293 512-512-60.16-60.373zM17.707 572.373l238.293 238.293 60.373-60.373-238.293-238.293-60.373 60.373z"></path>
+		</symbol>
+		<symbol id="ic-attach-file" viewBox="0 0 1024 1024"><!-- 正文附件图标 -->
+			<title>attach-file</title>
+			<path class="path1" d="M704 256v490.667c0 94.293-76.373 170.667-170.667 170.667s-170.667-76.373-170.667-170.667v-533.333c0-58.88 47.787-106.667 106.667-106.667s106.667 47.787 106.667 106.667v448c0 23.467-18.987 42.667-42.667 42.667s-42.667-19.2-42.667-42.667v-405.333h-64v405.333c0 58.88 47.787 106.667 106.667 106.667s106.667-47.787 106.667-106.667v-448c0-94.293-76.373-170.667-170.667-170.667s-170.667 76.373-170.667 170.667v533.333c0 129.707 105.173 234.667 234.667 234.667s234.667-104.96 234.667-234.667v-490.667h-64z"></path>
+		</symbol>
+		<symbol id="ic-border-color" viewBox="0 0 1024 1024"><!-- 填写意见 -->
+			<title>border-color</title>
+			<path class="path1" d="M757.333 298.667l-160-160-426.667 426.667v160h160l426.667-426.667zM883.413 172.587c16.64-16.64 16.64-43.733 0-60.373l-99.627-99.627c-16.64-16.64-43.733-16.64-60.373 0l-83.413 83.413 160 160 83.413-83.413z"></path>
+			<path class="path2" d="M0 853.333h1024v170.667h-1024z"></path>
+		</symbol>
+		<symbol id="ic-event" viewBox="0 0 1024 1024"><!-- 流程信息 -->
+			<title>event</title>
+			<path class="path1" d="M725.333 512h-213.333v213.333h213.333v-213.333zM682.667 42.667v85.333h-341.333v-85.333h-85.333v85.333h-42.667c-47.147 0-84.907 38.187-84.907 85.333l-0.427 597.333c0 47.147 38.187 85.333 85.333 85.333h597.333c47.147 0 85.333-38.187 85.333-85.333v-597.333c0-47.147-38.187-85.333-85.333-85.333h-42.667v-85.333h-85.333zM810.667 810.667h-597.333v-469.333h597.333v469.333z"></path>
+		</symbol>
+		<symbol id="ic-send" viewBox="0 0 1024 1024"><!-- 发送 -->
+			<title>send</title>
+			<path class="path1" d="M85.76 896l895.573-384-895.573-384-0.427 298.667 640 85.333-640 85.333z"></path>
+		</symbol>
+	</defs>
+	</svg>
+	<!-- IcoMoon SVG图标 END-->
+	
+	<!-- Status bar overlay for fullscreen mode-->
+	<div class="statusbar-overlay"></div>
+	<!-- Panels overlay-->
+	<div class="panel-overlay"></div>
+	<!-- Left panel with reveal effect-->
+	<div class="panel panel-right panel-reveal">
+		<!-- <div class="content-block"> -->
+			<div class="list-block">
+				<ul>
+					<li>
+						<a href="template/archieve-list.html" class="close-panel item-link">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="icon icon-archieve"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">文件流转（首页）</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="template/bulletin-list.html" class="close-panel item-link">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="icon icon-notice"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">通知公告</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="template/message-list.html" class="close-panel item-link">
+							<div class="item-content">
+								<div class="item-media">
+									<i class="icon icon-message"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">消息中心</div>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		<!-- </div> -->
+	</div>
+
+	<!-- Views START -->
+	<div class="views">
+		<!-- Your main view, should have "view-main" class-->
+		<div class="view view-main">
+			
+			<!-- Top Navbar-->
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="center">天翼移动平台</div>
+					<div class="right">
+						<a href="#" class="link icon-only open-panel">
+							<i class="icon icon-bars"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- /End of Top Navbar-->
+
+	        <!-- 每一个Page都应该放在 Pages 容器中(<div class="pages">),而Pages必须是View的子元素 -->
+	        <!-- navbar导航栏采用穿透布局，即在不同页面间切换时，保持不变 -->
+			<div class="pages navbar-through navbar-fixed toolbar-fixed">
+				<div class="page" data-page="index"></div>
+			</div>
+
+		</div>
+	</div>
+	<!-- Views END -->
+		
+	<!-- Path to Framework7 Library JS-->
+	<script type="text/javascript" src="js/framework7.js"></script>
+	<!-- Path to your app js-->
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
+
+</body>
+</html>

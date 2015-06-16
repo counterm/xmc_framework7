@@ -1,0 +1,47 @@
+<!--Top Navbar-->
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="index.html" class="back link"><i class="icon icon-back"></i><span>返回</span></a>
+        </div>
+        <div class="center">通知公告内容</div>
+        <div class="right">
+            <a href="#" class="link icon-only open-panel">
+                <i class="icon icon-bars"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- page START-->
+<div class="page" data-page="bulletin-content">
+    <div class="page-content bg-white">
+        <div class="content-block-title">
+            <p style="font-size:16px;white-space:normal">{{title}}</p>
+            <p>
+                <em>发布人:{{sendUserName}}</em>
+                <em>来源:{{source}}</em>
+                <em>作者:{{author}}</em>
+            </p>
+            <p>
+                <em>发布时间:{{releaseDate}}</em>
+                <em>失效期限:</em>
+                <!-- <em>点击率:333</em> -->
+            </p>
+        </div>
+        <div class="content-block">
+            <div class="content-block-inner">
+            {{content}}
+            </div>
+        </div>
+    </div>
+    
+    <style type="text/css">
+        /*文章标题下的作者、日期等标签*/
+        em{
+            margin-right: 8px;
+        }
+    </style>
+
+</div>
+<!-- page END -->
